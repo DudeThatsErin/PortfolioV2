@@ -6,8 +6,12 @@ import { useState } from 'react';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => {
+    const checkbox = document.getElementById('checkbox4') as HTMLInputElement;
+    if (checkbox) {
+      checkbox.checked = false;
+    }
+    setIsMenuOpen(false);
   };
 
   return (
@@ -32,12 +36,12 @@ export default function Header() {
             <span className="visually-hidden">Menu</span>
           </label>
           <div className="menu" id="main-menu" role="menu">
-            <Link href="/" role="menuitem">01. Home</Link>
-            <Link href="/about" role="menuitem">02. About</Link>
-            <Link href="/work" role="menuitem">03. Work</Link>
-            <Link href="/projects" role="menuitem">04. Projects</Link>
-            <Link href="/contact" role="menuitem">05. Contact</Link>
-            <Link href="/resume" role="menuitem"><button>Resume</button></Link>
+            <Link href="/" role="menuitem" onClick={closeMenu}>01. Home</Link>
+            <Link href="/about" role="menuitem" onClick={closeMenu}>02. About</Link>
+            <Link href="/work" role="menuitem" onClick={closeMenu}>03. Work</Link>
+            <Link href="/projects" role="menuitem" onClick={closeMenu}>04. Projects</Link>
+            <Link href="/contact" role="menuitem" onClick={closeMenu}>05. Contact</Link>
+            <Link href="/resume" role="menuitem" onClick={closeMenu}><button>Resume</button></Link>
           </div>
         </nav>
       </header>

@@ -1,11 +1,23 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { projects } from '@/data/projects';
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState<'all' | 'work' | 'personal'>('all');
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const filteredProjects = projects.filter(project => 
     filter === 'all' || project.type === filter
@@ -88,7 +100,7 @@ export default function ProjectsPage() {
               <h2 id={`${selectedProject}ModalTitle`}>{selectedProjectData.title}</h2>
             </div>
             <div className="modal-body">
-              {selectedProjectData.image && (
+              {selectedProjectData.image && !isMobile && (
                 <div style={{ width: '100%', margin: '0 auto', textAlign: 'center' }}>
                   <img 
                     src={selectedProjectData.image} 

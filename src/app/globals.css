@@ -68,12 +68,27 @@ body {
   line-height: 1.5;
   text-decoration: none;
   text-transform: none;
-  background: #000 url("/assets/bg_test.png") repeat-y;
+  background: #000 url("/assets/bg_test.png") repeat-y center;
+  background-size: 800px auto;
   -webkit-font-smoothing: antialiased;
   color: var(--gainsboro);
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  position: relative;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Main content container with max-width */
+#main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Skip to content link */
@@ -202,22 +217,22 @@ a:focus {
 /* Original Portfolio Layout Classes */
 .index-content {
   margin: 0;
-  padding: 2rem;
-  width: calc(100% - 4rem);
-  position: absolute;
+  padding: 4rem 2rem 2rem 2rem;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
   top: 10%;
-  left: 2rem;
-  right: 2rem;
+  overflow-x: hidden;
 }
 
 .about-content {
   margin: 0;
-  padding: 2rem;
-  width: calc(100% - 4rem);
-  position: absolute;
+  padding: 4rem 2rem 2rem 2rem;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
   top: 10%;
-  left: 2rem;
-  right: 2rem;
+  overflow-x: hidden;
 }
 
 /* Typography Elements */
@@ -282,34 +297,118 @@ button.contact:hover {
   .about-content {
     margin: 15% auto;
     position: relative;
-    left: 0;
-    right: 0;
-    width: calc(100% - 4rem);
-    padding: 2rem;
+    padding: 4rem 2rem 2rem 2rem;
   }
 }
 
+/* Mobile optimizations - especially for iPhone 13 mini (375px width) */
 @media screen and (max-width: 900px) {
+  body {
+    background: #000 !important;
+    background-size: 100% auto;
+    font-size: var(--fz-md);
+  }
+
+  #main-content {
+    padding: 0;
+    max-width: 100vw;
+  }
+
   .index-content,
   .about-content {
-    position: absolute;
-    top: 10%;
-    left: 1rem;
-    right: 1rem;
-    width: calc(100% - 2rem);
+    position: relative;
+    top: 5%;
     padding: 1rem;
+    margin-top: 80px;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #000;
+  }
+
+  /* Reduce section padding on mobile */
+  .section {
+    padding: 1rem 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* Work page specific mobile fixes */
+  #work-experience .section {
+    padding: 0.75rem 0.25rem !important;
+  }
+
+  #work-experience h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  #work-experience .title,
+  #work-experience .date {
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+  }
+
+  #work-experience ul {
+    padding-left: 1.25rem;
+    margin: 0.5rem 0;
+  }
+
+  #work-experience li {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
   }
 }
 
+/* iPhone 13 mini and smaller devices */
 @media screen and (max-width: 479px) {
+  body {
+    font-size: var(--fz-xs);
+  }
+
+  .index-content,
+  .about-content {
+    padding: 0.75rem;
+  }
+
   .name {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .hello,
   .iam,
   .shortabout {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  .numbered-heading {
+    font-size: 1.25rem !important;
+  }
+
+  /* Extra tight spacing for work page on small phones */
+  #work-experience .section {
+    padding: 0.5rem 0.15rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  #work-experience h3 {
+    font-size: 1.1rem;
+  }
+
+  #work-experience .title,
+  #work-experience .date {
+    font-size: 0.8rem;
+  }
+
+  #work-experience ul {
+    padding-left: 1rem;
+  }
+
+  #work-experience li {
+    font-size: 0.75rem;
+    line-height: 1.3;
   }
 }
 
@@ -391,6 +490,17 @@ label[for="checkbox4"] {
   font-weight: bold;
 }
 
+@media screen and (max-width: 900px) {
+  .logo {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .logo a {
+    font-size: 18px;
+  }
+}
+
 /* Sidebar */
 .left-sidebar {
   margin: 0;
@@ -421,12 +531,19 @@ label[for="checkbox4"] {
   color: var(--white);
 }
 
+/* Hide sidebar on mobile */
+@media screen and (max-width: 900px) {
+  .left-sidebar {
+    display: none;
+  }
+}
+
 /* Hamburger Menu Styles */
 .hamburger {
   width: var(--hamburger-width);
   height: var(--hamburger-width);
   position: relative;
-  margin: 10px;
+  margin: 0;
 }
 
 .hamburger .bar {
@@ -445,19 +562,23 @@ label[for="checkbox4"] {
 
 /* Mobile Menu */
 @media screen and (max-width: 900px) {
+  nav {
+    padding: 0;
+  }
+
   .menu {
     display: none;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.98);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 1000;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding-left: 2rem;
+    align-items: center;
+    padding: 0;
   }
 
   .checkbox4:checked ~ .menu {
@@ -465,11 +586,19 @@ label[for="checkbox4"] {
   }
 
   .menu a {
-    font-size: 1.25rem;
-    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    margin: 1rem 0;
     color: var(--accent-teal);
     display: block;
-    padding: 1rem;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    width: auto;
+  }
+
+  .menu a:hover {
+    color: var(--white);
+    background-color: rgba(131, 212, 197, 0.1);
+    border-radius: 5px;
   }
 
   /* Show hamburger menu on mobile */
@@ -481,6 +610,9 @@ label[for="checkbox4"] {
     right: 1rem;
     z-index: 1001;
     cursor: pointer;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
   }
 
   .hamburger .bar {
@@ -490,6 +622,20 @@ label[for="checkbox4"] {
     position: absolute;
     border-radius: 2px;
     transition: var(--transition);
+  }
+
+  /* Animate hamburger when menu is open */
+  .checkbox4:checked ~ label .hamburger .bar1 {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .checkbox4:checked ~ label .hamburger .bar2,
+  .checkbox4:checked ~ label .hamburger .bar3 {
+    opacity: 0;
+  }
+
+  .checkbox4:checked ~ label .hamburger .bar4 {
+    transform: rotate(-45deg) translate(6px, -6px);
   }
 }
 
@@ -502,8 +648,9 @@ label[for="checkbox4"] {
   width: 100%;
   font-size: var(--fz-heading);
   white-space: nowrap;
-  word-wrap: break-word;
   color: var(--light-sky-blue);
+  overflow: hidden;
+  padding-right: 0;
 }
 
 .numbered-heading::after {
@@ -538,11 +685,16 @@ label[for="checkbox4"] {
 /* Responsive adjustments for numbered heading and lists */
 @media screen and (max-width: 900px) {
   .numbered-heading {
-    font-size: 24px;
+    font-size: 16px;
+    white-space: normal;
+    word-wrap: break-word;
+    padding-right: 70px;
+    max-width: calc(100vw - 90px);
+    line-height: 1.3;
   }
   
   .numbered-heading::after {
-    width: 100px;
+    display: none;
   }
   
   .list {
@@ -655,12 +807,71 @@ label[for="checkbox4"] {
     padding: 1.5rem;
     margin: 1rem 0;
   }
+
+  /* Mobile projects grid */
+  .featured {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Mobile modal - full screen with solid black background */
+  .modal {
+    background-color: #000 !important;
+  }
+
+  .modal-content {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    background-color: #000 !important;
+    overflow-y: auto;
+  }
+
+  .modal-header {
+    background-color: #000 !important;
+    padding: 1.5rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #333;
+  }
+
+  .modal-header h2 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .modal-body {
+    padding: 1rem;
+    background-color: #000 !important;
+  }
+
+  .modal-footer {
+    background-color: #000 !important;
+    padding: 1rem;
+    border-top: 1px solid #333;
+  }
+
+  .close {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 479px) {
   .section {
     padding: 1rem;
     margin: 1rem 0;
+  }
+
+  .modal-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .modal-body,
+  .modal-footer {
+    padding: 0.75rem;
   }
 }
 
@@ -697,6 +908,12 @@ label[for="checkbox4"] {
   margin-top: 2rem;
 }
 
+@media screen and (max-width: 1200px) {
+  .featured {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .featured > div {
   background: var(--bg-dark);
   border: 1px solid var(--border-color);
@@ -717,6 +934,79 @@ label[for="checkbox4"] {
   color: var(--gainsboro);
   line-height: 1.6;
   margin-bottom: 1rem;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  max-width: 100%;
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: rgba(131, 212, 197, 0.05);
+  border: 2px solid var(--accent-teal);
+  border-radius: 4px;
+  color: var(--gainsboro);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contact-input::placeholder {
+  color: rgba(131, 212, 197, 0.5);
+}
+
+.contact-input:focus {
+  outline: none;
+  background-color: rgba(131, 212, 197, 0.1);
+  border-color: var(--white);
+}
+
+.contact-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.contact-button {
+  padding: 0.75rem 2rem;
+  border: 2px solid var(--accent-teal);
+  background-color: transparent;
+  color: var(--accent-teal);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.contact-button:hover:not(:disabled) {
+  background-color: rgba(131, 212, 197, 0.1);
+}
+
+.contact-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 900px) {
+  .contact-form .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-input {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+  }
+  
+  .contact-button {
+    width: 100%;
+    padding: 0.85rem;
+  }
 }
 
 /* Modal Button */
