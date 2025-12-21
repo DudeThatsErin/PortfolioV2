@@ -85,7 +85,7 @@ html {
 
 /* Main content container with max-width */
 #main-content {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   overflow-x: hidden;
@@ -229,10 +229,14 @@ a:focus {
   margin: 0;
   padding: 4rem 2rem 2rem 2rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   position: relative;
   top: 10%;
   overflow-x: hidden;
+}
+
+.about-content p {
+  margin: 20px 0;
 }
 
 /* Typography Elements */
@@ -242,6 +246,7 @@ a:focus {
   font-family: var(--font-mono);
   display: block;
   color: var(--accent-teal);
+  margin-top: 1em;
 }
 
 .name {
@@ -428,6 +433,14 @@ nav {
   z-index: 100;
   text-align: right;
   padding: 0 2rem;
+}
+
+@media screen and (min-width: 901px) {
+  nav {
+    background-color: #000;
+    top: 0;
+    padding: 0.75rem 2rem;
+  }
 }
 
 .menu {
@@ -726,6 +739,8 @@ label[for="checkbox4"] {
 .pdf-preview iframe {
   display: block;
   margin: 0 auto;
+  width: 1000px;
+  height: 600px;
   max-width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -733,13 +748,14 @@ label[for="checkbox4"] {
 /* Responsive adjustments for PDF preview */
 @media screen and (max-width: 900px) {
   .pdf-preview iframe {
+    width: 100%;
     height: 600px;
   }
 }
 
 @media screen and (max-width: 479px) {
-  .pdf-preview iframe {
-    height: 500px;
+  .pdf-preview {
+    display: none;
   }
 }
 
@@ -751,6 +767,10 @@ label[for="checkbox4"] {
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background: var(--bg-dark);
+}
+
+.section p {
+  padding: 4px 0;
 }
 
 .section ul {

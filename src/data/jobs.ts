@@ -10,9 +10,9 @@ export interface Job {
 export const jobs: Job[] = [
   {
     id: "payactiv",
-    title: "Full Stack Software Engineer",
+    title: "Software Engineer",
     company: "Payactiv",
-    startDate: "2025",
+    startDate: "2024",
     endDate: "Present",
     responsibilities: [
       "Led the architecture and development of a greenfield <strong>React Native + Next.js monorepo</strong>, using <strong>TypeScript and Tailwind</strong>, supporting <strong>three production applications</strong> across iOS, Android, and web.",
@@ -28,7 +28,7 @@ export const jobs: Job[] = [
   },
   {
     id: "freelance",
-    title: "Freelance Full-Stack Developer",
+    title: "Freelance Full-Stack Engineer",
     company: "Self-Employed",
     startDate: "2019",
     endDate: "Present",
