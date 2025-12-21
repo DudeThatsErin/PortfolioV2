@@ -9,7 +9,7 @@ export default function ResumePage() {
       
       <div style={{ textAlign: 'center', margin: '2rem 0' }}>
         <a
-          href="/assets/ErinSkiddsResume.pdf"
+          href="/assets/ErinSkiddsResume.pdf?v=2"
           download
           style={{ margin: '0 1rem' }}
         >
@@ -19,7 +19,7 @@ export default function ResumePage() {
         </a>
         
         <a
-          href="/assets/ErinSkiddsResume.docx"
+          href="/assets/ErinSkiddsResume.docx?v=2"
           download
           style={{ margin: '0 1rem' }}
         >
@@ -32,7 +32,7 @@ export default function ResumePage() {
       {/* PDF Preview */}
       <div className="pdf-preview">
         <iframe
-          src="/assets/ErinSkiddsResume.pdf"
+          src="/assets/ErinSkiddsResume.pdf?v=2"
           width="100%"
           height="800"
           style={{
@@ -43,7 +43,7 @@ export default function ResumePage() {
           title="Erin Skidds Resume Preview"
         >
           <p>Your browser does not support PDFs. 
-            <a href="/assets/ErinSkiddsResume.pdf" download>Download the PDF</a> to view it.
+            <a href="/assets/ErinSkiddsResume.pdf?v=2" download>Download the PDF</a> to view it.
           </p>
         </iframe>
       </div>
