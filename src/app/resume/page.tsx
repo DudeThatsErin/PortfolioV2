@@ -1,3 +1,5 @@
+import CertificatesSection from '@/components/CertificatesSection';
+
 export default function ResumePage() {
   return (
     <main className="about-content" role="main" aria-labelledby="resume-heading">
@@ -44,6 +46,8 @@ export default function ResumePage() {
         >
         </iframe>
       </div>
+
+      <CertificatesSection />
     </main>
   );
 }
