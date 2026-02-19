@@ -1,34 +1,23 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { projects } from '@/data/projects';
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState<'all' | 'work' | 'personal'>('all');
-  const [selectedProject, setSelectedProject] = useState<string | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 900);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   const filteredProjects = projects.filter(project => 
     filter === 'all' || project.type === filter
   );
 
-  const selectedProjectData = projects.find(p => p.id === selectedProject);
-
   return (
     <main className="about-content" role="main" aria-labelledby="projects-heading">
-      <h2 id="projects-heading" className="numbered-heading">04. Some Things I've Built & Worked On</h2>
+      <h2 id="projects-heading" className="numbered-heading">03. Project Case Studies</h2>
       
+      <p style={{ marginBottom: '2rem', maxWidth: '800px' }}>
+        Each project below showcases the problem I solved, my technical approach, measurable results, and my specific contribution to the work.
+      </p>
+
       <div className="filter-buttons" role="tablist" aria-label="Filter projects by category">
         <button
           className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
@@ -44,7 +33,7 @@ export default function ProjectsPage() {
           role="tab"
           aria-selected={filter === 'work'}
         >
-          Work Projects
+          Professional Work
         </button>
         <button
           className={`filter-btn ${filter === 'personal' ? 'active' : ''}`}
@@ -56,96 +45,92 @@ export default function ProjectsPage() {
         </button>
       </div>
       
-      <div className="featured" role="tabpanel">
+      <div className="projects-case-studies" role="tabpanel">
         {filteredProjects.map((project) => (
-          <div
+          <article
             key={project.id}
-            className={project.id + '_feat'}
+            className="case-study-card"
             data-project-type={project.type}
           >
-            <div className="body">
-              <h3 className="workTitle">{project.title}</h3>
-              <p className="details" dangerouslySetInnerHTML={{ __html: project.description }} />
-              <button 
-                className="modal-button"
-                onClick={() => setSelectedProject(project.id)}
-                aria-haspopup="dialog"
-                aria-label={`Read more about ${project.title} project`}
-              >
-                Click here to read more...
-              </button>
+            <div className="case-study-header">
+              <h3 className="case-study-title">{project.title}</h3>
+              <span className="project-type-badge">{project.type === 'work' ? 'Professional' : 'Personal'}</span>
             </div>
-          </div>
-        ))}
-      </div>
+            
+            <p className="case-study-description">{project.description}</p>
 
-      {/* Modal */}
-      {selectedProject && selectedProjectData && (
-        <div 
-          className="modal"
-          style={{ display: 'block' }}
-          role="dialog"
-          aria-labelledby={`${selectedProject}ModalTitle`}
-          aria-hidden="false"
-        >
-          <div className="modal-content">
-            <div className="modal-header">
-              <span 
-                className="close" 
-                onClick={() => setSelectedProject(null)}
-                aria-label="Close dialog"
-              >
-                &times;
-              </span>
-              <h2 id={`${selectedProject}ModalTitle`}>{selectedProjectData.title}</h2>
+            <div className="case-study-section">
+              <h4 className="case-study-label">Problem</h4>
+              <p>{project.problem}</p>
             </div>
-            <div className="modal-body">
-              {selectedProjectData.image && !isMobile && (
-                <div style={{ width: '100%', margin: '0 auto', textAlign: 'center' }}>
-                  <img 
-                    src={selectedProjectData.image} 
-                    className="img" 
-                    alt={`Screenshot of ${selectedProjectData.title}`} 
-                  />
+
+            <div className="case-study-section">
+              <h4 className="case-study-label">Approach</h4>
+              <p>{project.approach}</p>
+            </div>
+
+            <div className="case-study-section">
+              <h4 className="case-study-label">Results & Impact</h4>
+              <p>{project.results}</p>
+            </div>
+
+            <div className="case-study-section">
+              <h4 className="case-study-label">My Contribution</h4>
+              <p>{project.contribution}</p>
+            </div>
+
+            <div className="case-study-footer">
+              <div className="tech-stack">
+                <strong>Technologies:</strong>
+                <div className="tech-tags">
+                  {project.technologies.map((tech, index) => (
+                    <span key={index} className="tech-tag">{tech}</span>
+                  ))}
                 </div>
-              )}
-              <p dangerouslySetInnerHTML={{ 
-                __html: selectedProjectData.fullDescription || selectedProjectData.description 
-              }} />
-            </div>
-            <div className="modal-footer">
-              <p className="langs">
-                <strong>Languages Used:</strong> {selectedProjectData.technologies.join(', ')}
-              </p>
-              <p><strong>Find {selectedProjectData.title} Here:</strong></p>
-              <div className="links" style={{ paddingTop: '8px' }}>
-                {selectedProjectData.links.github && (
+              </div>
+              
+              <div className="project-links">
+                {project.links.github && (
                   <a 
-                    href={selectedProjectData.links.github} 
+                    href={project.links.github} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    aria-label={`View ${selectedProjectData.title} code on GitHub (opens in new tab)`}
+                    className="project-link"
+                    aria-label={`View ${project.title} code on GitHub`}
                   >
-                    <i className="fa-brands fa-github" aria-hidden="true" title="View the Code"></i>
-                    <span className="visually-hidden">View the Code on GitHub</span>
+                    <i className="fa-brands fa-github" aria-hidden="true"></i>
+                    <span>View Code</span>
                   </a>
                 )}
-                {(selectedProjectData.links.demo || selectedProjectData.links.website) && (
+                {project.links.demo && (
                   <a 
-                    href={selectedProjectData.links.demo || selectedProjectData.links.website} 
+                    href={project.links.demo} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    aria-label={`View ${selectedProjectData.title} live site (opens in new tab)`}
+                    className="project-link"
+                    aria-label={`View ${project.title} live demo`}
                   >
-                    <i className="fa-solid fa-external-link" aria-hidden="true" title="View Live Site"></i>
-                    <span className="visually-hidden">View Live Site</span>
+                    <i className="fa-solid fa-external-link" aria-hidden="true"></i>
+                    <span>Live Demo</span>
+                  </a>
+                )}
+                {project.links.website && (
+                  <a 
+                    href={project.links.website} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="project-link"
+                    aria-label={`Visit ${project.title} website`}
+                  >
+                    <i className="fa-solid fa-globe" aria-hidden="true"></i>
+                    <span>Visit Site</span>
                   </a>
                 )}
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </article>
+        ))}
+      </div>
     </main>
   );
 }

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 06 - Sidebar Navigation</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--gainsboro);
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 280px;
+            background: var(--bg-dark);
+            padding: 3rem 2rem;
+            position: fixed;
+            height: 100vh;
+            border-right: 2px solid var(--accent-teal);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar h1 {
+            color: var(--light-sky-blue);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar .role {
+            color: var(--accent-teal);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .sidebar nav {
+            flex: 1;
+        }
+        
+        .sidebar nav a {
+            display: block;
+            color: var(--gainsboro);
+            text-decoration: none;
+            padding: 1rem 0;
+            border-left: 3px solid transparent;
+            padding-left: 1rem;
+            margin-left: -1rem;
+            transition: all 0.3s;
+        }
+        
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            color: var(--accent-teal);
+            border-left-color: var(--accent-teal);
+        }
+        
+        .sidebar .social {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--accent-teal);
+        }
+        
+        .sidebar .social a {
+            color: var(--accent-teal);
+            text-decoration: none;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            padding: 4rem;
+            flex: 1;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section h2 {
+            color: var(--light-sky-blue);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--accent-teal);
+        }
+        
+        .section p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-item {
+            background: rgba(131, 212, 197, 0.1);
+            padding: 1rem;
+            border-left: 3px solid var(--accent-teal);
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 900px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 2px solid var(--accent-teal);
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 2rem;
+            }
+            body {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div>
+            <h1>Erin Skidds</h1>
+            <div class="role">Full-Stack Engineer</div>
+        </div>
+        
+        <nav>
+            <a href="#about" class="active">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        
+        <div class="social">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Email</a>
+        </div>
+    </aside>
+    
+    <main class="main-content">
+        <section class="section" id="about">
+            <h2>About Me</h2>
+            <p>
+                I'm a Full-Stack Engineer with 5+ years of experience building scalable web applications 
+                and intelligent systems. My passion lies in creating innovative solutions that combine 
+                modern web technologies with AI and machine learning.
+            </p>
+            <p>
+                Throughout my career, I've worked on diverse projects ranging from Discord bots to 
+                enterprise web applications, always focusing on clean code, optimal performance, and 
+                exceptional user experience.
+            </p>
+        </section>
+        
+        <section class="section" id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-list">
+                <div class="skill-item">JavaScript/TypeScript</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">C++/C#</div>
+                <div class="skill-item">React & Next.js</div>
+                <div class="skill-item">Node.js</div>
+                <div class="skill-item">PyTorch</div>
+                <div class="skill-item">AWS Cloud</div>
+                <div class="skill-item">SQL & NoSQL</div>
+            </div>
+        </section>
+        
+        <section class="section" id="experience">
+            <h2>Experience</h2>
+            <p>
+                <strong>River & Reef Aquaculture</strong> - Full Stack Software Engineer<br>
+                Developed custom web applications and database solutions for aquaculture management.
+            </p>
+            <p>
+                <strong>Freelance Developer</strong><br>
+                Built websites and applications from scratch for clients including Travel Agent 360.
+            </p>
+        </section>
+    </main>
+</body>
+</html>

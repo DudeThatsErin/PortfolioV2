@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 09 - Asymmetric</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--gainsboro);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .hero-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 5rem;
+            color: var(--light-sky-blue);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content .highlight {
+            color: var(--accent-teal);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-top: 2rem;
+        }
+        
+        .hero-accent {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a1a 100%);
+            padding: 3rem;
+            border-left: 5px solid var(--accent-teal);
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .hero-accent h3 {
+            color: var(--accent-teal);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-accent ul {
+            list-style: none;
+        }
+        
+        .hero-accent li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(131, 212, 197, 0.2);
+        }
+        
+        .hero-accent li:last-child {
+            border-bottom: none;
+        }
+        
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .content-section:nth-child(even) {
+            grid-template-columns: 2fr 1fr;
+        }
+        
+        .section-title {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--light-sky-blue);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+        }
+        
+        .section-content {
+            background: var(--bg-dark);
+            padding: 3rem;
+            border-radius: 10px;
+            border: 1px solid rgba(131, 212, 197, 0.2);
+        }
+        
+        .section-content h3 {
+            color: var(--accent-teal);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-content p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-item {
+            background: rgba(131, 212, 197, 0.1);
+            padding: 1rem;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tech-item:hover {
+            border-color: var(--accent-teal);
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 1200px) {
+            .hero-section,
+            .content-section,
+            .content-section:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+            .section-title h2 {
+                writing-mode: horizontal-tb;
+                transform: none;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>
+                    Building the<br>
+                    <span class="highlight">Future</span><br>
+                    of Web
+                </h1>
+                <p>
+                    I'm Erin Skidds, a Full-Stack Engineer specializing in AI integration 
+                    and modern web development. With 5+ years of experience, I transform 
+                    complex problems into elegant solutions.
+                </p>
+            </div>
+            <div class="hero-accent">
+                <h3>Quick Facts</h3>
+                <ul>
+                    <li>5+ Years Experience</li>
+                    <li>Full-Stack Development</li>
+                    <li>AI/ML Specialist</li>
+                    <li>Bot Development Expert</li>
+                    <li>Cloud Architecture</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <div class="section-title">
+                <h2>EXPERIENCE</h2>
+            </div>
+            <div class="section-content">
+                <h3>Professional Journey</h3>
+                <p>
+                    Started my career at River & Reef Aquaculture as a Full Stack Software Engineer, 
+                    where I developed custom web applications and database solutions.
+                </p>
+                <p>
+                    Prior to that, I worked as a freelance developer, building applications from 
+                    scratch for clients like Travel Agent 360, honing my skills across the entire 
+                    development stack.
+                </p>
+                <p>
+                    My coding journey began 9 years ago with creating a Discord bot for my CodingHelp 
+                    server, which sparked my passion for bot development and AI integration.
+                </p>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <div class="section-content">
+                <h3>Technical Expertise</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">Python</div>
+                    <div class="tech-item">JavaScript</div>
+                    <div class="tech-item">TypeScript</div>
+                    <div class="tech-item">React</div>
+                    <div class="tech-item">Next.js</div>
+                    <div class="tech-item">Node.js</div>
+                    <div class="tech-item">PyTorch</div>
+                    <div class="tech-item">AWS</div>
+                    <div class="tech-item">C++/C#</div>
+                </div>
+            </div>
+            <div class="section-title">
+                <h2>SKILLS</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

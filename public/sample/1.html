@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 01 - Minimalist</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000 url("/assets/bg_test.png") repeat-y center;
+            background-size: 800px auto;
+            color: var(--gainsboro);
+            line-height: 1.8;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(1, 1, 1, 0.95);
+            padding: 1.5rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid var(--accent-teal);
+        }
+        
+        nav .nav-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            color: var(--accent-teal);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: var(--gainsboro);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent-teal);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        section {
+            min-height: 100vh;
+            padding: 4rem 0;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent-teal);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 3rem;
+        }
+        
+        .bio {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .job, .project {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(48, 47, 47, 0.3);
+            border-left: 3px solid var(--accent-teal);
+            border-radius: 5px;
+        }
+        
+        .job h3, .project h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .company, .date {
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+        }
+        
+        ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent-teal);
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background: rgba(131, 212, 197, 0.1);
+            color: var(--accent-teal);
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(48, 47, 47, 0.5);
+            border: 1px solid var(--accent-teal);
+            color: var(--gainsboro);
+            font-family: 'Courier New', monospace;
+            border-radius: 5px;
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background: transparent;
+            border: 2px solid var(--accent-teal);
+            color: var(--accent-teal);
+            padding: 1rem 2rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background: rgba(131, 212, 197, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            nav .nav-links { gap: 1rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="logo">ES</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#work">Work</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h1>Erin Skidds</h1>
+            <div class="subtitle">Full-Stack Engineer</div>
+            <p class="bio">
+                I build intelligent systems and elegant web applications. With 5+ years of experience in full-stack development, 
+                I specialize in AI/ML integration, bot development, and modern web technologies.
+            </p>
+            <p class="bio">
+                Throughout my coding journey I have enjoyed creating bots/AI and things that live on the internet. I started about 9 years ago by creating a discord bot for my CodingHelp discord server. I have since started teaching myself how to apply language learning models to bots that I have created for websites and discord.
+            </p>
+        </section>
+
+        <section id="work">
+            <h2>Where I've Worked</h2>
+            
+            <div class="job">
+                <h3>Software Engineer</h3>
+                <div class="company">Payactiv</div>
+                <div class="date">2024 - Present</div>
+                <ul>
+                    <li>Led architecture and development of a greenfield React Native + Next.js monorepo</li>
+                    <li>Drove end-to-end mobile strategy from concept to App Store and Google Play publication</li>
+                    <li>Partnered with SVP and CTO to define technical vision and system architecture</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3>Freelance Full-Stack Engineer</h3>
+                <div class="company">Self-Employed</div>
+                <div class="date">2019 - Present</div>
+                <ul>
+                    <li>Founded r/CodingHelp community providing mentorship to thousands of developers</li>
+                    <li>Developed comprehensive automated testing suites using C# and ASP.NET</li>
+                    <li>Engineered AI-powered bots utilizing Python, PyTorch, and Node.js</li>
+                </ul>
+            </div>
+
+            <div class="job">
+                <h3>Full Stack Software Engineer</h3>
+                <div class="company">River & Reef Aquaculture</div>
+                <div class="date">2020 - 2022</div>
+                <ul>
+                    <li>Designed comprehensive eCommerce platform using Angular, MySQL, and C# (.NET)</li>
+                    <li>Integrated automated inventory management systems</li>
+                    <li>Led all technical operations including hosting and security protocols</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Some Things I've Built</h2>
+            
+            <div class="project">
+                <h3>Sasha AI</h3>
+                <p>An in-progress AI created using PyTorch that uses Natural Language and Deep Learning to learn and answer questions about me. Designed as a digital family heirloom for future generations.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">NLP</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>React Auth State Demo</h3>
+                <p>A simple authentication system built using React and SQLite, handling user registration, login, and profile management with secure credential storage.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">SQLite</span>
+                    <span class="tech-tag">React Native</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <h3>CodingHelp Discord Bot</h3>
+                <p>Comprehensive moderation and help bot for the r/CodingHelp community, providing automated assistance and community management features.</p>
+                <div class="tech-tags">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Discord.js</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p class="bio">
+                I'm currently open to new opportunities and interesting projects. Whether you have a question or just want to say hi, feel free to reach out!
+            </p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+            
+            <p class="bio" style="margin-top: 2rem;">
+                Email: <a href="mailto:erin.skidds@gmail.com" style="color: var(--accent-teal);">erin.skidds@gmail.com</a>
+            </p>
+        </section>
+    </div>
+</body>
+</html>

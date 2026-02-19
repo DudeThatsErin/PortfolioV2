@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 14 - Geometric</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--gainsboro);
+            overflow-x: hidden;
+        }
+        
+        .geometric-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.1;
+        }
+        
+        .geometric-bg::before,
+        .geometric-bg::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border: 2px solid var(--accent-teal);
+        }
+        
+        .geometric-bg::before {
+            top: 10%;
+            left: 5%;
+            transform: rotate(45deg);
+            animation: rotate1 20s linear infinite;
+        }
+        
+        .geometric-bg::after {
+            bottom: 10%;
+            right: 5%;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation: rotate2 15s linear infinite reverse;
+        }
+        
+        @keyframes rotate1 {
+            from { transform: rotate(45deg); }
+            to { transform: rotate(405deg); }
+        }
+        
+        @keyframes rotate2 {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .hero-geometric {
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        .hero-geometric::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            border: 3px solid var(--accent-teal);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .hero-geometric h1 {
+            font-size: 5rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .hero-geometric .subtitle {
+            font-size: 1.8rem;
+            color: var(--accent-teal);
+            margin-bottom: 2rem;
+        }
+        
+        .geometric-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .geometric-card {
+            background: var(--bg-dark);
+            padding: 3rem 2rem;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+            border: 2px solid var(--accent-teal);
+            transition: all 0.3s;
+        }
+        
+        .geometric-card:nth-child(2) {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%, 0 85%);
+        }
+        
+        .geometric-card:nth-child(3) {
+            clip-path: polygon(0 15%, 15% 0, 100% 0, 100% 100%, 0 100%);
+        }
+        
+        .geometric-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(131, 212, 197, 0.3);
+        }
+        
+        .geometric-card h2 {
+            color: var(--light-sky-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .geometric-card p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .triangle-section {
+            margin-top: 4rem;
+            position: relative;
+            padding: 4rem 2rem;
+        }
+        
+        .triangle-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-bottom: 200px solid var(--accent-teal);
+            opacity: 0.1;
+        }
+        
+        .triangle-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-right: 200px solid transparent;
+            border-top: 200px solid var(--accent-teal);
+            opacity: 0.1;
+        }
+        
+        .triangle-section h2 {
+            color: var(--light-sky-blue);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .skills-geometric {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-hex {
+            background: var(--bg-dark);
+            padding: 2rem 1rem;
+            text-align: center;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            border: 2px solid var(--accent-teal);
+            color: var(--accent-teal);
+            font-weight: bold;
+            transition: all 0.3s;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skill-hex:hover {
+            background: var(--accent-teal);
+            color: var(--black);
+            transform: scale(1.1);
+        }
+        
+        .diamond-cta {
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .diamond-button {
+            display: inline-block;
+            background: var(--accent-teal);
+            color: var(--black);
+            padding: 1.5rem 3rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+            transition: all 0.3s;
+        }
+        
+        .diamond-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(131, 212, 197, 0.5);
+        }
+        
+        @media (max-width: 900px) {
+            .geometric-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-geometric h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="geometric-bg"></div>
+    
+    <div class="container">
+        <div class="hero-geometric">
+            <h1>ERIN SKIDDS</h1>
+            <div class="subtitle">Full-Stack Engineer</div>
+            <p style="max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                Creating geometric precision in code. 5+ years of experience building 
+                scalable applications at the intersection of design and functionality.
+            </p>
+        </div>
+        
+        <div class="geometric-grid">
+            <div class="geometric-card">
+                <h2>Backend</h2>
+                <p>Python, C++/C#, Node.js, PHP</p>
+                <p>Building robust server-side solutions with modern frameworks and best practices.</p>
+            </div>
+            
+            <div class="geometric-card">
+                <h2>Frontend</h2>
+                <p>React, Next.js, Vue, Angular, TypeScript</p>
+                <p>Crafting responsive, accessible interfaces with cutting-edge technologies.</p>
+            </div>
+            
+            <div class="geometric-card">
+                <h2>AI/ML</h2>
+                <p>PyTorch, LLMs, Bot Development</p>
+                <p>Integrating intelligent systems and language models into production applications.</p>
+            </div>
+        </div>
+        
+        <div class="triangle-section">
+            <h2>Technical Stack</h2>
+            <div class="skills-geometric">
+                <div class="skill-hex">Python</div>
+                <div class="skill-hex">JavaScript</div>
+                <div class="skill-hex">React</div>
+                <div class="skill-hex">Next.js</div>
+                <div class="skill-hex">Node.js</div>
+                <div class="skill-hex">PyTorch</div>
+                <div class="skill-hex">AWS</div>
+                <div class="skill-hex">TypeScript</div>
+                <div class="skill-hex">C++/C#</div>
+                <div class="skill-hex">Vue</div>
+                <div class="skill-hex">Django</div>
+                <div class="skill-hex">SQL</div>
+            </div>
+        </div>
+        
+        <div class="diamond-cta">
+            <a href="#contact" class="diamond-button">LET'S CONNECT</a>
+        </div>
+    </div>
+</body>
+</html>

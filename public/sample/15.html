@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 15 - Floating Elements</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: var(--gainsboro);
+            min-height: 100vh;
+            padding: 2rem;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .floating-hero {
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .floating-hero h1 {
+            font-size: 5rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-hero .subtitle {
+            font-size: 1.8rem;
+            color: var(--accent-teal);
+            animation: float 6s ease-in-out infinite 0.5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .floating-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+        
+        .float-card {
+            background: rgba(48, 47, 47, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(131, 212, 197, 0.3);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+            animation: floatCard 8s ease-in-out infinite;
+        }
+        
+        .float-card:nth-child(1) { animation-delay: 0s; }
+        .float-card:nth-child(2) { animation-delay: 0.5s; }
+        .float-card:nth-child(3) { animation-delay: 1s; }
+        .float-card:nth-child(4) { animation-delay: 1.5s; }
+        
+        @keyframes floatCard {
+            0%, 100% { 
+                transform: translateY(0px) rotateX(0deg);
+                box-shadow: 0 10px 40px rgba(131, 212, 197, 0.2);
+            }
+            50% { 
+                transform: translateY(-15px) rotateX(5deg);
+                box-shadow: 0 20px 60px rgba(131, 212, 197, 0.4);
+            }
+        }
+        
+        .float-card:hover {
+            transform: translateY(-25px) scale(1.05) rotateX(10deg);
+            border-color: var(--accent-teal);
+            box-shadow: 0 30px 80px rgba(131, 212, 197, 0.5);
+        }
+        
+        .float-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--accent-teal), var(--light-sky-blue));
+            border-radius: 20px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s;
+        }
+        
+        .float-card:hover::before {
+            opacity: 0.3;
+        }
+        
+        .float-card h2 {
+            color: var(--light-sky-blue);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .float-card h3 {
+            color: var(--accent-teal);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .float-card p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .floating-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(131, 212, 197, 0.3) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: floatOrb 20s ease-in-out infinite;
+        }
+        
+        .orb:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            top: 10%;
+            left: 10%;
+            animation-duration: 15s;
+        }
+        
+        .orb:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            top: 60%;
+            right: 10%;
+            animation-duration: 20s;
+            animation-delay: -5s;
+        }
+        
+        .orb:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            bottom: 10%;
+            left: 50%;
+            animation-duration: 18s;
+            animation-delay: -10s;
+        }
+        
+        @keyframes floatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+        
+        .skill-cloud {
+            margin-top: 4rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .skill-cloud h2 {
+            color: var(--light-sky-blue);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .skill-bubble {
+            display: inline-block;
+            background: rgba(131, 212, 197, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--accent-teal);
+            color: var(--accent-teal);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            margin: 0.5rem;
+            font-size: 1rem;
+            animation: floatBubble 5s ease-in-out infinite;
+            transition: all 0.3s;
+        }
+        
+        .skill-bubble:nth-child(odd) { animation-delay: 0.5s; }
+        .skill-bubble:nth-child(even) { animation-delay: 1s; }
+        
+        .skill-bubble:hover {
+            background: var(--accent-teal);
+            color: var(--black);
+            transform: scale(1.2) translateY(-10px);
+        }
+        
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating-cta {
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-teal), var(--light-sky-blue));
+            color: var(--black);
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: bold;
+            box-shadow: 0 10px 40px rgba(131, 212, 197, 0.4);
+            animation: float 6s ease-in-out infinite;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 20px 60px rgba(131, 212, 197, 0.6);
+        }
+        
+        @media (max-width: 900px) {
+            .floating-hero h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    
+    <div class="container">
+        <div class="floating-hero">
+            <h1>Erin Skidds</h1>
+            <div class="subtitle">Full-Stack Engineer</div>
+        </div>
+        
+        <div class="floating-cards">
+            <div class="float-card">
+                <h2>Experience</h2>
+                <h3>5+ Years</h3>
+                <p>Building scalable web applications and intelligent systems with modern technologies.</p>
+            </div>
+            
+            <div class="float-card">
+                <h2>Specialization</h2>
+                <h3>AI/ML Integration</h3>
+                <p>Creating bots and integrating language learning models into production applications.</p>
+            </div>
+            
+            <div class="float-card">
+                <h2>Full-Stack</h2>
+                <h3>End-to-End</h3>
+                <p>From backend APIs to frontend interfaces, delivering complete solutions.</p>
+            </div>
+            
+            <div class="float-card">
+                <h2>Cloud Native</h2>
+                <h3>AWS Expert</h3>
+                <p>Architecting scalable cloud solutions with modern DevOps practices.</p>
+            </div>
+        </div>
+        
+        <div class="skill-cloud">
+            <h2>Technical Expertise</h2>
+            <div>
+                <span class="skill-bubble">Python</span>
+                <span class="skill-bubble">JavaScript</span>
+                <span class="skill-bubble">TypeScript</span>
+                <span class="skill-bubble">React</span>
+                <span class="skill-bubble">Next.js</span>
+                <span class="skill-bubble">Node.js</span>
+                <span class="skill-bubble">PyTorch</span>
+                <span class="skill-bubble">C++/C#</span>
+                <span class="skill-bubble">AWS</span>
+                <span class="skill-bubble">Vue</span>
+                <span class="skill-bubble">Angular</span>
+                <span class="skill-bubble">Django</span>
+                <span class="skill-bubble">Flask</span>
+                <span class="skill-bubble">SQL</span>
+                <span class="skill-bubble">MongoDB</span>
+            </div>
+        </div>
+        
+        <div class="floating-cta">
+            <a href="#contact" class="cta-button">Let's Build Something Amazing</a>
+        </div>
+    </div>
+</body>
+</html>

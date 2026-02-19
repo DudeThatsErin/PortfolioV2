@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 02 - Grid-Based</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+            --border-color: #6c6c6c;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--gainsboro);
+            padding: 2rem;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .grid-item {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            border-radius: 5px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .grid-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-teal);
+        }
+        
+        .grid-item h2 {
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .grid-item.hero {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .hero .subtitle {
+            color: var(--accent-teal);
+            font-size: 1.3rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(131, 212, 197, 0.1);
+            color: var(--accent-teal);
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            margin: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item hero">
+            <h1>Erin Skidds</h1>
+            <div class="subtitle">Full-Stack Engineer & AI Specialist</div>
+        </div>
+        
+        <div class="grid-item">
+            <h2>Experience</h2>
+            <p>5+ years building scalable web applications and intelligent systems for companies like River & Reef Aquaculture.</p>
+        </div>
+        
+        <div class="grid-item">
+            <h2>Specialization</h2>
+            <p>AI/ML integration, Discord bots, language learning models, and modern web development.</p>
+        </div>
+        
+        <div class="grid-item">
+            <h2>Backend</h2>
+            <span class="tag">Python</span>
+            <span class="tag">C++/C#</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">PHP</span>
+        </div>
+        
+        <div class="grid-item">
+            <h2>Frontend</h2>
+            <span class="tag">React</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Vue</span>
+        </div>
+        
+        <div class="grid-item">
+            <h2>AI/ML</h2>
+            <span class="tag">PyTorch</span>
+            <span class="tag">LLMs</span>
+            <span class="tag">Django</span>
+            <span class="tag">Flask</span>
+        </div>
+        
+        <div class="grid-item">
+            <h2>Cloud & DevOps</h2>
+            <span class="tag">AWS</span>
+            <span class="tag">EC2</span>
+            <span class="tag">CloudFront</span>
+            <span class="tag">DynamoDB</span>
+        </div>
+    </div>
+</body>
+</html>

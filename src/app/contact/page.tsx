@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import CertificatesSection from '@/components/CertificatesSection';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -33,7 +34,7 @@ export default function ContactPage() {
   return (
     <main className="about-content" role="main" aria-labelledby="contact-heading">
       <h2 id="contact-heading" className="numbered-heading">
-        05. Get In Touch
+        04. Get In Touch
       </h2>
         
       <p style={{ marginBottom: '2rem' }}>
@@ -133,6 +134,55 @@ export default function ContactPage() {
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </form>
+
+      {/* Resume Section */}
+      <section aria-labelledby="resume-heading" style={{ marginTop: '4rem' }}>
+        <h2 id="resume-heading" className="numbered-heading">
+          04. Resume
+        </h2>
+        
+        <p>Download my resume to learn more about my experience and qualifications.</p>
+        
+        <div style={{ textAlign: 'center', margin: '2rem 0' }}>
+          <a
+            href="/assets/ErinSkiddsResume.pdf?v=9"
+            download
+            style={{ margin: '0 1rem' }}
+          >
+            <button className="contact">  
+              <i className="fa-solid fa-download"></i> Download PDF Resume
+            </button>
+          </a>
+          
+          <a
+            href="/assets/ErinSkiddsResume.docx?v=9"
+            download
+            style={{ margin: '0 1rem' }}
+          >
+            <button className="contact">
+              <i className="fa-solid fa-file-word"></i> Download Word Resume
+            </button>
+          </a>
+        </div>
+
+        {/* PDF Preview */}
+        <div className="pdf-preview">
+          <iframe
+            src="/assets/ErinSkiddsResume.pdf?v=9"
+            width="100%"
+            height="100%"
+            style={{
+              border: '1px solid var(--border-color)',
+              borderRadius: 'var(--border-radius)',
+              marginTop: '2rem'
+            }}
+            title="Erin Skidds Resume Preview"
+          >
+          </iframe>
+        </div>
+      </section>
+
+      <CertificatesSection />
     </main>
   );
 }

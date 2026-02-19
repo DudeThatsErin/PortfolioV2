@@ -1,0 +1,310 @@
+Array
+(
+    [LSPHP_ProcessGroup] => on
+    [PATH] => /usr/local/bin:/bin:/usr/bin
+    [HTTP_ACCEPT] => application/json
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => application/json
+    [CONTENT_LENGTH] => 63
+    [HTTP_HOST] => erinskidds.com
+    [HTTP_USER_AGENT] => PostmanRuntime/7.43.0
+    [HTTP_POSTMAN_TOKEN] => 91b2f3b0-9df9-42d7-9c58-1de647b6d637
+    [DOCUMENT_ROOT] => /home/u861884483/domains/erinskidds.com/public_html
+    [REMOTE_ADDR] => 104.55.193.105
+    [REMOTE_PORT] => 49705
+    [SERVER_ADDR] => 92.112.189.240
+    [SERVER_NAME] => erinskidds.com
+    [SERVER_ADMIN] => 
+    [SERVER_PORT] => 443
+    [REQUEST_SCHEME] => https
+    [REQUEST_URI] => /reactauthstatedemo/api/register.php
+    [HTTPS] => on
+    [CRAWLER_USLEEP] => 1000
+    [CRAWLER_LOAD_LIMIT_ENFORCE] => 25
+    [H_PLATFORM] => Hostinger
+    [H_TYPE] => shared
+    [H_CANARY] => false
+    [H_STAGING] => false
+    [SSL_PROTOCOL] => TLSv1.3
+    [SSL_CIPHER] => TLS_AES_128_GCM_SHA256
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SCRIPT_FILENAME] => /home/u861884483/domains/erinskidds.com/public_html/reactauthstatedemo/api/register.php
+    [QUERY_STRING] => 
+    [SCRIPT_URI] => https://erinskidds.com/reactauthstatedemo/api/register.php
+    [SCRIPT_URL] => /reactauthstatedemo/api/register.php
+    [SCRIPT_NAME] => /reactauthstatedemo/api/register.php
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => LiteSpeed
+    [REQUEST_METHOD] => POST
+    [X-LSCACHE] => on,crawler,esi,combine
+    [PHP_SELF] => /reactauthstatedemo/api/register.php
+    [REQUEST_TIME_FLOAT] => 1738873264.5621
+    [REQUEST_TIME] => 1738873264
+)
+Array
+(
+    [LSPHP_ProcessGroup] => on
+    [PATH] => /usr/local/bin:/bin:/usr/bin
+    [HTTP_ACCEPT] => application/json
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => application/json
+    [CONTENT_LENGTH] => 64
+    [HTTP_HOST] => erinskidds.com
+    [HTTP_USER_AGENT] => PostmanRuntime/7.43.0
+    [HTTP_POSTMAN_TOKEN] => 6b165f2c-de83-498e-be51-48f515437f79
+    [DOCUMENT_ROOT] => /home/u861884483/domains/erinskidds.com/public_html
+    [REMOTE_ADDR] => 104.55.193.105
+    [REMOTE_PORT] => 49724
+    [SERVER_ADDR] => 92.112.189.240
+    [SERVER_NAME] => erinskidds.com
+    [SERVER_ADMIN] => 
+    [SERVER_PORT] => 443
+    [REQUEST_SCHEME] => https
+    [REQUEST_URI] => /reactauthstatedemo/api/register.php
+    [HTTPS] => on
+    [CRAWLER_USLEEP] => 1000
+    [CRAWLER_LOAD_LIMIT_ENFORCE] => 25
+    [H_PLATFORM] => Hostinger
+    [H_TYPE] => shared
+    [H_CANARY] => false
+    [H_STAGING] => false
+    [SSL_PROTOCOL] => TLSv1.3
+    [SSL_CIPHER] => TLS_AES_128_GCM_SHA256
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SCRIPT_FILENAME] => /home/u861884483/domains/erinskidds.com/public_html/reactauthstatedemo/api/register.php
+    [QUERY_STRING] => 
+    [SCRIPT_URI] => https://erinskidds.com/reactauthstatedemo/api/register.php
+    [SCRIPT_URL] => /reactauthstatedemo/api/register.php
+    [SCRIPT_NAME] => /reactauthstatedemo/api/register.php
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => LiteSpeed
+    [REQUEST_METHOD] => POST
+    [X-LSCACHE] => on,crawler,esi,combine
+    [PHP_SELF] => /reactauthstatedemo/api/register.php
+    [REQUEST_TIME_FLOAT] => 1738873287.5434
+    [REQUEST_TIME] => 1738873287
+)
+Array
+(
+    [LSPHP_ProcessGroup] => on
+    [PATH] => /usr/local/bin:/bin:/usr/bin
+    [HTTP_ACCEPT] => */*
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [CONTENT_TYPE] => application/json
+    [CONTENT_LENGTH] => 44
+    [HTTP_HOST] => erinskidds.com
+    [HTTP_REFERER] => http://localhost:3000/
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_SEC_CH_UA] => "Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"
+    [HTTP_DNT] => 1
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_ORIGIN] => http://localhost:3000
+    [HTTP_SEC_FETCH_SITE] => cross-site
+    [HTTP_SEC_FETCH_MODE] => cors
+    [HTTP_SEC_FETCH_DEST] => empty
+    [HTTP_PRIORITY] => u=1, i
+    [DOCUMENT_ROOT] => /home/u861884483/domains/erinskidds.com/public_html
+    [REMOTE_ADDR] => 104.55.193.105
+    [REMOTE_PORT] => 60849
+    [SERVER_ADDR] => 92.112.189.240
+    [SERVER_NAME] => erinskidds.com
+    [SERVER_ADMIN] => 
+    [SERVER_PORT] => 443
+    [REQUEST_SCHEME] => https
+    [REQUEST_URI] => /reactauthstatedemo/api/register.php
+    [HTTPS] => on
+    [CRAWLER_USLEEP] => 1000
+    [CRAWLER_LOAD_LIMIT_ENFORCE] => 25
+    [H_PLATFORM] => Hostinger
+    [H_TYPE] => shared
+    [H_CANARY] => false
+    [H_STAGING] => false
+    [X_SPDY] => HTTP3
+    [SSL_PROTOCOL] => QUIC
+    [SSL_CIPHER] => TLS_AES_128_GCM_SHA256
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SCRIPT_FILENAME] => /home/u861884483/domains/erinskidds.com/public_html/reactauthstatedemo/api/register.php
+    [QUERY_STRING] => 
+    [SCRIPT_URI] => https://erinskidds.com/reactauthstatedemo/api/register.php
+    [SCRIPT_URL] => /reactauthstatedemo/api/register.php
+    [SCRIPT_NAME] => /reactauthstatedemo/api/register.php
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => LiteSpeed
+    [REQUEST_METHOD] => POST
+    [X-LSCACHE] => on,crawler,esi,combine
+    [PHP_SELF] => /reactauthstatedemo/api/register.php
+    [REQUEST_TIME_FLOAT] => 1738873604.5697
+    [REQUEST_TIME] => 1738873604
+)
+Array
+(
+    [LSPHP_ProcessGroup] => on
+    [PATH] => /usr/local/bin:/bin:/usr/bin
+    [HTTP_ACCEPT] => */*
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [CONTENT_TYPE] => application/json
+    [CONTENT_LENGTH] => 45
+    [HTTP_HOST] => erinskidds.com
+    [HTTP_REFERER] => http://localhost:3000/
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_SEC_CH_UA] => "Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"
+    [HTTP_DNT] => 1
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_ORIGIN] => http://localhost:3000
+    [HTTP_SEC_FETCH_SITE] => cross-site
+    [HTTP_SEC_FETCH_MODE] => cors
+    [HTTP_SEC_FETCH_DEST] => empty
+    [HTTP_PRIORITY] => u=1, i
+    [DOCUMENT_ROOT] => /home/u861884483/domains/erinskidds.com/public_html
+    [REMOTE_ADDR] => 104.55.193.105
+    [REMOTE_PORT] => 61624
+    [SERVER_ADDR] => 92.112.189.240
+    [SERVER_NAME] => erinskidds.com
+    [SERVER_ADMIN] => 
+    [SERVER_PORT] => 443
+    [REQUEST_SCHEME] => https
+    [REQUEST_URI] => /reactauthstatedemo/api/register.php
+    [HTTPS] => on
+    [CRAWLER_USLEEP] => 1000
+    [CRAWLER_LOAD_LIMIT_ENFORCE] => 25
+    [H_PLATFORM] => Hostinger
+    [H_TYPE] => shared
+    [H_CANARY] => false
+    [H_STAGING] => false
+    [X_SPDY] => HTTP3
+    [SSL_PROTOCOL] => QUIC
+    [SSL_CIPHER] => TLS_AES_128_GCM_SHA256
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SCRIPT_FILENAME] => /home/u861884483/domains/erinskidds.com/public_html/reactauthstatedemo/api/register.php
+    [QUERY_STRING] => 
+    [SCRIPT_URI] => https://erinskidds.com/reactauthstatedemo/api/register.php
+    [SCRIPT_URL] => /reactauthstatedemo/api/register.php
+    [SCRIPT_NAME] => /reactauthstatedemo/api/register.php
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => LiteSpeed
+    [REQUEST_METHOD] => POST
+    [X-LSCACHE] => on,crawler,esi,combine
+    [PHP_SELF] => /reactauthstatedemo/api/register.php
+    [REQUEST_TIME_FLOAT] => 1738873710.8338
+    [REQUEST_TIME] => 1738873710
+)
+Array
+(
+    [LSPHP_ProcessGroup] => on
+    [PATH] => /usr/local/bin:/bin:/usr/bin
+    [HTTP_ACCEPT] => */*
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [CONTENT_TYPE] => application/json
+    [CONTENT_LENGTH] => 45
+    [HTTP_HOST] => erinskidds.com
+    [HTTP_REFERER] => http://localhost:3000/
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_SEC_CH_UA] => "Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"
+    [HTTP_DNT] => 1
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_ORIGIN] => http://localhost:3000
+    [HTTP_SEC_FETCH_SITE] => cross-site
+    [HTTP_SEC_FETCH_MODE] => cors
+    [HTTP_SEC_FETCH_DEST] => empty
+    [HTTP_PRIORITY] => u=1, i
+    [DOCUMENT_ROOT] => /home/u861884483/domains/erinskidds.com/public_html
+    [REMOTE_ADDR] => 104.55.193.105
+    [REMOTE_PORT] => 59630
+    [SERVER_ADDR] => 92.112.189.240
+    [SERVER_NAME] => erinskidds.com
+    [SERVER_ADMIN] => 
+    [SERVER_PORT] => 443
+    [REQUEST_SCHEME] => https
+    [REQUEST_URI] => /reactauthstatedemo/api/register.php
+    [HTTPS] => on
+    [CRAWLER_USLEEP] => 1000
+    [CRAWLER_LOAD_LIMIT_ENFORCE] => 25
+    [H_PLATFORM] => Hostinger
+    [H_TYPE] => shared
+    [H_CANARY] => false
+    [H_STAGING] => false
+    [X_SPDY] => HTTP3
+    [SSL_PROTOCOL] => QUIC
+    [SSL_CIPHER] => TLS_AES_128_GCM_SHA256
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SCRIPT_FILENAME] => /home/u861884483/domains/erinskidds.com/public_html/reactauthstatedemo/api/register.php
+    [QUERY_STRING] => 
+    [SCRIPT_URI] => https://erinskidds.com/reactauthstatedemo/api/register.php
+    [SCRIPT_URL] => /reactauthstatedemo/api/register.php
+    [SCRIPT_NAME] => /reactauthstatedemo/api/register.php
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => LiteSpeed
+    [REQUEST_METHOD] => POST
+    [X-LSCACHE] => on,crawler,esi,combine
+    [PHP_SELF] => /reactauthstatedemo/api/register.php
+    [REQUEST_TIME_FLOAT] => 1738873929.5044
+    [REQUEST_TIME] => 1738873929
+)
+Array
+(
+    [LSPHP_ProcessGroup] => on
+    [PATH] => /usr/local/bin:/bin:/usr/bin
+    [HTTP_ACCEPT] => */*
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br, zstd
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9
+    [CONTENT_TYPE] => application/json
+    [CONTENT_LENGTH] => 45
+    [HTTP_HOST] => erinskidds.com
+    [HTTP_REFERER] => http://localhost:3000/
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_SEC_CH_UA] => "Not A(Brand";v="8", "Chromium";v="132", "Google Chrome";v="132"
+    [HTTP_DNT] => 1
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_ORIGIN] => http://localhost:3000
+    [HTTP_SEC_FETCH_SITE] => cross-site
+    [HTTP_SEC_FETCH_MODE] => cors
+    [HTTP_SEC_FETCH_DEST] => empty
+    [HTTP_PRIORITY] => u=1, i
+    [DOCUMENT_ROOT] => /home/u861884483/domains/erinskidds.com/public_html
+    [REMOTE_ADDR] => 104.55.193.105
+    [REMOTE_PORT] => 59630
+    [SERVER_ADDR] => 92.112.189.240
+    [SERVER_NAME] => erinskidds.com
+    [SERVER_ADMIN] => 
+    [SERVER_PORT] => 443
+    [REQUEST_SCHEME] => https
+    [REQUEST_URI] => /reactauthstatedemo/api/register.php
+    [HTTPS] => on
+    [CRAWLER_USLEEP] => 1000
+    [CRAWLER_LOAD_LIMIT_ENFORCE] => 25
+    [H_PLATFORM] => Hostinger
+    [H_TYPE] => shared
+    [H_CANARY] => false
+    [H_STAGING] => false
+    [X_SPDY] => HTTP3
+    [SSL_PROTOCOL] => QUIC
+    [SSL_CIPHER] => TLS_AES_128_GCM_SHA256
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SCRIPT_FILENAME] => /home/u861884483/domains/erinskidds.com/public_html/reactauthstatedemo/api/register.php
+    [QUERY_STRING] => 
+    [SCRIPT_URI] => https://erinskidds.com/reactauthstatedemo/api/register.php
+    [SCRIPT_URL] => /reactauthstatedemo/api/register.php
+    [SCRIPT_NAME] => /reactauthstatedemo/api/register.php
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [SERVER_SOFTWARE] => LiteSpeed
+    [REQUEST_METHOD] => POST
+    [X-LSCACHE] => on,crawler,esi,combine
+    [PHP_SELF] => /reactauthstatedemo/api/register.php
+    [REQUEST_TIME_FLOAT] => 1738873933.1585
+    [REQUEST_TIME] => 1738873933
+)

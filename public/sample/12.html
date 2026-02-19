@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 12 - Brutalist</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--gainsboro);
+            line-height: 1.4;
+        }
+        
+        .brutalist-header {
+            background: var(--accent-teal);
+            color: var(--black);
+            padding: 3rem 2rem;
+            border: 5px solid var(--black);
+            position: relative;
+        }
+        
+        .brutalist-header::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: -10px;
+            bottom: -10px;
+            border: 5px solid var(--accent-teal);
+            z-index: -1;
+        }
+        
+        .brutalist-header h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+        }
+        
+        .brutalist-header .subtitle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 3px solid var(--black);
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--black);
+            color: var(--accent-teal);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .brutalist-section {
+            border: 5px solid var(--accent-teal);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            background: var(--black);
+        }
+        
+        .brutalist-section::before {
+            content: attr(data-label);
+            position: absolute;
+            top: -1.5rem;
+            left: 2rem;
+            background: var(--accent-teal);
+            color: var(--black);
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border: 3px solid var(--black);
+        }
+        
+        .brutalist-section h2 {
+            color: var(--light-sky-blue);
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .brutalist-section p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .brutalist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .brutalist-box {
+            border: 4px solid var(--accent-teal);
+            padding: 2rem;
+            background: var(--black);
+            position: relative;
+            transform: rotate(-1deg);
+            transition: transform 0.3s;
+        }
+        
+        .brutalist-box:nth-child(even) {
+            transform: rotate(1deg);
+        }
+        
+        .brutalist-box:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        
+        .brutalist-box h3 {
+            color: var(--accent-teal);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--accent-teal);
+            padding-bottom: 0.5rem;
+        }
+        
+        .brutalist-box ul {
+            list-style: none;
+        }
+        
+        .brutalist-box li {
+            padding: 0.5rem 0;
+            border-bottom: 2px solid rgba(131, 212, 197, 0.3);
+            font-weight: bold;
+        }
+        
+        .brutalist-box li:last-child {
+            border-bottom: none;
+        }
+        
+        .brutalist-cta {
+            background: var(--accent-teal);
+            color: var(--black);
+            border: 5px solid var(--black);
+            padding: 1.5rem 3rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .brutalist-cta::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: -8px;
+            bottom: -8px;
+            border: 5px solid var(--accent-teal);
+            z-index: -1;
+            transition: all 0.3s;
+        }
+        
+        .brutalist-cta:hover::after {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        @media (max-width: 900px) {
+            .brutalist-header h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="brutalist-header">
+        <h1>ERIN<br>SKIDDS</h1>
+        <div class="subtitle">Full-Stack Engineer</div>
+    </header>
+    
+    <div class="container">
+        <div class="brutalist-section" data-label="ABOUT">
+            <h2>WHO I AM</h2>
+            <p>
+                5+ YEARS BUILDING SCALABLE WEB APPLICATIONS AND INTELLIGENT SYSTEMS. 
+                SPECIALIZING IN AI/ML INTEGRATION, BOT DEVELOPMENT, AND MODERN WEB TECHNOLOGIES.
+            </p>
+            <p>
+                STARTED CODING 9 YEARS AGO WITH A DISCORD BOT. NOW CREATING PRODUCTION-READY 
+                SOLUTIONS THAT COMBINE CUTTING-EDGE AI WITH ELEGANT WEB DESIGN.
+            </p>
+            <a href="#contact" class="brutalist-cta">LET'S WORK TOGETHER</a>
+        </div>
+        
+        <div class="brutalist-section" data-label="SKILLS">
+            <h2>WHAT I DO</h2>
+            <div class="brutalist-grid">
+                <div class="brutalist-box">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>PYTHON</li>
+                        <li>C++/C#</li>
+                        <li>NODE.JS</li>
+                        <li>PHP</li>
+                        <li>DJANGO</li>
+                        <li>FLASK</li>
+                    </ul>
+                </div>
+                
+                <div class="brutalist-box">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>REACT</li>
+                        <li>NEXT.JS</li>
+                        <li>VUE</li>
+                        <li>ANGULAR</li>
+                        <li>TYPESCRIPT</li>
+                    </ul>
+                </div>
+                
+                <div class="brutalist-box">
+                    <h3>AI/ML</h3>
+                    <ul>
+                        <li>PYTORCH</li>
+                        <li>LLMs</li>
+                        <li>BOT DEV</li>
+                        <li>AUTOMATION</li>
+                    </ul>
+                </div>
+                
+                <div class="brutalist-box">
+                    <h3>Cloud</h3>
+                    <ul>
+                        <li>AWS</li>
+                        <li>EC2</li>
+                        <li>LAMBDA</li>
+                        <li>DYNAMODB</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="brutalist-section" data-label="EXPERIENCE">
+            <h2>WHERE I'VE WORKED</h2>
+            <p><strong>RIVER & REEF AQUACULTURE</strong> — Full Stack Software Engineer</p>
+            <p><strong>FREELANCE</strong> — Travel Agent 360 & More</p>
+        </div>
+    </div>
+</body>
+</html>

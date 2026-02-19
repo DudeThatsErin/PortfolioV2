@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 13 - Neumorphic</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #2a2a2a;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--bg-dark);
+            color: var(--gainsboro);
+            padding: 3rem 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .neumorphic {
+            background: var(--bg-dark);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 
+                12px 12px 24px rgba(0, 0, 0, 0.5),
+                -12px -12px 24px rgba(60, 60, 60, 0.1);
+        }
+        
+        .neumorphic-inset {
+            background: var(--bg-dark);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 
+                inset 8px 8px 16px rgba(0, 0, 0, 0.5),
+                inset -8px -8px 16px rgba(60, 60, 60, 0.1);
+        }
+        
+        .hero-neumorphic {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .hero-neumorphic h1 {
+            font-size: 4rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-neumorphic .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-neumorphic p {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .neumorphic-button {
+            background: var(--bg-dark);
+            color: var(--accent-teal);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            margin-top: 2rem;
+            box-shadow: 
+                8px 8px 16px rgba(0, 0, 0, 0.5),
+                -8px -8px 16px rgba(60, 60, 60, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .neumorphic-button:hover {
+            box-shadow: 
+                inset 8px 8px 16px rgba(0, 0, 0, 0.5),
+                inset -8px -8px 16px rgba(60, 60, 60, 0.1);
+        }
+        
+        .neumorphic-button:active {
+            box-shadow: 
+                inset 10px 10px 20px rgba(0, 0, 0, 0.6),
+                inset -10px -10px 20px rgba(60, 60, 60, 0.1);
+        }
+        
+        .grid-neumorphic {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .neumorphic h2 {
+            color: var(--light-sky-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .neumorphic h3 {
+            color: var(--accent-teal);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .neumorphic p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-pill {
+            display: inline-block;
+            background: var(--bg-dark);
+            color: var(--accent-teal);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+            box-shadow: 
+                6px 6px 12px rgba(0, 0, 0, 0.5),
+                -6px -6px 12px rgba(60, 60, 60, 0.1);
+        }
+        
+        .progress-bar {
+            background: var(--bg-dark);
+            border-radius: 15px;
+            padding: 0.5rem;
+            margin: 1rem 0;
+            box-shadow: 
+                inset 6px 6px 12px rgba(0, 0, 0, 0.5),
+                inset -6px -6px 12px rgba(60, 60, 60, 0.1);
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, var(--accent-teal), var(--light-sky-blue));
+            height: 20px;
+            border-radius: 10px;
+            box-shadow: 
+                4px 4px 8px rgba(0, 0, 0, 0.3);
+            transition: width 1s ease;
+        }
+        
+        .stat-neumorphic {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            color: var(--accent-teal);
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .stat-label {
+            color: var(--gainsboro);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="neumorphic hero-neumorphic">
+            <h1>Erin Skidds</h1>
+            <div class="subtitle">Full-Stack Engineer</div>
+            <p>
+                Crafting elegant solutions with 5+ years of experience in full-stack development, 
+                AI integration, and modern web technologies.
+            </p>
+            <button class="neumorphic-button">Get In Touch</button>
+        </div>
+        
+        <div class="grid-neumorphic">
+            <div class="neumorphic stat-neumorphic">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            
+            <div class="neumorphic stat-neumorphic">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Projects</div>
+            </div>
+            
+            <div class="neumorphic stat-neumorphic">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Technologies</div>
+            </div>
+        </div>
+        
+        <div class="neumorphic">
+            <h2>Expertise</h2>
+            <div class="neumorphic-inset">
+                <h3>Full-Stack Development</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 95%;"></div>
+                </div>
+                
+                <h3>AI/ML Integration</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 90%;"></div>
+                </div>
+                
+                <h3>Cloud Architecture</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%;"></div>
+                </div>
+                
+                <h3>Bot Development</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 92%;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="neumorphic">
+            <h2>Technical Skills</h2>
+            <div style="margin-top: 1.5rem;">
+                <span class="skill-pill">Python</span>
+                <span class="skill-pill">JavaScript</span>
+                <span class="skill-pill">TypeScript</span>
+                <span class="skill-pill">React</span>
+                <span class="skill-pill">Next.js</span>
+                <span class="skill-pill">Node.js</span>
+                <span class="skill-pill">PyTorch</span>
+                <span class="skill-pill">C++/C#</span>
+                <span class="skill-pill">AWS</span>
+                <span class="skill-pill">Vue</span>
+                <span class="skill-pill">Django</span>
+                <span class="skill-pill">Flask</span>
+            </div>
+        </div>
+        
+        <div class="grid-neumorphic">
+            <div class="neumorphic">
+                <h3>River & Reef Aquaculture</h3>
+                <p>Full Stack Software Engineer developing custom web applications and database solutions.</p>
+            </div>
+            
+            <div class="neumorphic">
+                <h3>Freelance Developer</h3>
+                <p>Built applications from scratch for clients including Travel Agent 360.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

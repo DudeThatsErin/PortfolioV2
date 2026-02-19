@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     icon: "/assets/favicon.ico",
     apple: "/assets/apple-touch-icon.png",
   },
+  other: {
+    'cache-control': 'no-cache, no-store, must-revalidate',
+  },
 };
 
 export default function RootLayout({
