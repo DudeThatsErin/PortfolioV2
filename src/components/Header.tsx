@@ -55,7 +55,7 @@ export default function Header() {
           <div className="menu" id="main-menu" role="menu">
             <Link href="/" role="menuitem" onClick={closeMenu}>01. Home</Link>
             <Link href="/work" role="menuitem" onClick={closeMenu}>02. Work Experience</Link>
-            {/* <Link href="/projects" role="menuitem" onClick={closeMenu}>03. Projects</Link> */}
+            <Link href="/projects" role="menuitem" onClick={closeMenu}>03. Projects</Link>
             <Link href="/contact" role="menuitem" onClick={closeMenu}><button>Contact</button></Link>
           </div>
         </nav>

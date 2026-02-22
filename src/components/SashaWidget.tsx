@@ -33,7 +33,13 @@ export default function SashaWidget() {
     if (stored) {
       try {
         const parsed = JSON.parse(stored) as Message[]
-        if (parsed.length > 0) setMessages(parsed)
+        const cleaned = parsed.filter(m =>
+          m.content !== '__SASHA_OFFLINE__' &&
+          m.content !== 'SASHA_OFFLINE' &&
+          !m.content.includes('[LinkedIn](https://') &&
+          !m.content.includes('[GitHub](https://')
+        )
+        if (cleaned.length > 0) setMessages(cleaned)
       } catch {}
     }
   }, [])
@@ -79,7 +85,17 @@ export default function SashaWidget() {
 
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const data = await res.json()
-      setMessages(prev => [...prev, { role: 'assistant', content: data.response }])
+      const isOfflineResponse = data.response === 'SASHA_OFFLINE'
+      setMessages(prev => [
+        ...prev,
+        {
+          role: 'assistant',
+          content: isOfflineResponse
+            ? "Sorry, I'm offline right now. You can reach Erin directly on:"
+            : data.response,
+          isOffline: isOfflineResponse,
+        },
+      ])
     } catch {
       setMessages(prev => [
         ...prev,
@@ -135,9 +151,9 @@ export default function SashaWidget() {
                 {msg.content}
                 {msg.isOffline && (
                   <span className="block mt-1">
-                    <a href="https://linkedin.com/in/erinskidds" target="_blank" rel="noopener noreferrer" className="underline">LinkedIn</a>
+                    <a href="https://linkedin.com/in/erinskidds" target="_blank" rel="noopener noreferrer" aria-label="Erin's LinkedIn profile (opens in new tab)" className="underline">LinkedIn</a>
                     {' · '}
-                    <a href="https://github.com/DudeThatsErin" target="_blank" rel="noopener noreferrer" className="underline">GitHub</a>
+                    <a href="https://github.com/DudeThatsErin" target="_blank" rel="noopener noreferrer" aria-label="Erin's GitHub profile (opens in new tab)" className="underline">GitHub</a>
                   </span>
                 )}
                 {msg.comingSoon && (

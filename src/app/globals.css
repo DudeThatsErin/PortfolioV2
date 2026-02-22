@@ -1044,19 +1044,20 @@ button.modal-button:focus-visible {
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 9999;
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: var(--accent-teal);
-  color: var(--darkest-indigo-dye);
-  border: none;
-  font-size: 1.5rem;
+  color: #0a192f;
+  border: 2px solid rgba(0,0,0,0.2);
+  font-size: 1.6rem;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.15s var(--easing), background 0.2s var(--easing);
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 1;
 }
 
 .sasha-bubble:hover {
@@ -1071,15 +1072,15 @@ button.modal-button:focus-visible {
 
 .sasha-panel {
   position: fixed;
-  bottom: 5rem;
+  bottom: 5.5rem;
   right: 1.5rem;
   z-index: 9998;
-  width: 320px;
-  height: 460px;
-  background: var(--darkest-indigo-dye);
-  border: 1px solid var(--accent-teal);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  width: 340px;
+  height: 480px;
+  background: #0d2137;
+  border: 1px solid rgba(100, 220, 200, 0.5);
+  border-radius: 14px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1090,23 +1091,23 @@ button.modal-button:focus-visible {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 14px;
-  background: var(--indigo-dye);
-  border-bottom: 1px solid rgba(131, 212, 197, 0.25);
+  padding: 14px 16px;
+  background: #0a2540;
+  border-bottom: 1px solid rgba(100, 220, 200, 0.3);
   flex-shrink: 0;
 }
 
 .sasha-avatar {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--accent-teal);
-  color: var(--darkest-indigo-dye);
+  color: #0a192f;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
 }
 
@@ -1118,8 +1119,8 @@ button.modal-button:focus-visible {
 }
 
 .sasha-header-text strong {
-  font-size: 0.9rem;
-  color: var(--white);
+  font-size: 1rem;
+  color: #ffffff;
   line-height: 1;
 }
 
@@ -1132,22 +1133,30 @@ button.modal-button:focus-visible {
 .sasha-close {
   margin-left: auto;
   background: none;
-  border: none;
-  color: var(--light-slate);
-  font-size: 1.4rem;
+  border: 1px solid transparent;
+  color: #a8c0cc;
+  font-size: 1.5rem;
   cursor: pointer;
   line-height: 1;
-  padding: 0 2px;
-  transition: color 0.15s;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+  min-width: 32px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sasha-close:hover {
-  color: var(--white);
+  color: #ffffff;
+  background: rgba(255,255,255,0.1);
 }
 
 .sasha-close:focus-visible {
-  outline: 2px solid var(--focus-outline);
-  border-radius: 3px;
+  outline: 3px solid var(--focus-outline);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .sasha-messages {
@@ -1173,21 +1182,21 @@ button.modal-button:focus-visible {
 }
 
 .sasha-msg-bot {
-  background: var(--indigo-dye);
-  color: var(--lightest-slate);
+  background: #1a3a5c;
+  color: #e2edf5;
   border-bottom-left-radius: 3px;
   align-self: flex-start;
 }
 
 .sasha-msg-user {
-  background: var(--accent-teal);
-  color: var(--darkest-indigo-dye);
+  background: #1a8a7a;
+  color: #ffffff;
   border-bottom-right-radius: 3px;
   align-self: flex-end;
 }
 
 .sasha-thinking {
-  color: var(--light-slate);
+  color: #8ab4c4;
   font-style: italic;
 }
 
@@ -1201,23 +1210,24 @@ button.modal-button:focus-visible {
 
 .sasha-input {
   flex: 1;
-  background: var(--indigo-dye);
-  border: 1px solid var(--accent-teal);
+  background: #0a2540;
+  border: 1px solid rgba(100, 220, 200, 0.5);
   border-radius: 999px;
-  padding: 7px 14px;
-  font-size: 0.82rem;
-  color: var(--white);
+  padding: 9px 16px;
+  font-size: 0.9rem;
+  color: #e2edf5;
   outline: none;
   font-family: var(--font-readable);
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .sasha-input::placeholder {
-  color: var(--white);
+  color: #6a8fa0;
 }
 
 .sasha-input:focus {
-  border-color: var(--accent-teal-darker);
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 3px rgba(100, 220, 200, 0.25);
 }
 
 .sasha-input:disabled {
@@ -1225,14 +1235,15 @@ button.modal-button:focus-visible {
 }
 
 .sasha-send {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: var(--accent-teal);
-  color: var(--darkest-indigo-dye);
+  color: #0a192f;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   flex-shrink: 0;
   transition: background 0.15s;
   display: flex;
@@ -1250,26 +1261,33 @@ button.modal-button:focus-visible {
 }
 
 .sasha-send:focus-visible {
-  outline: 2px solid var(--focus-outline);
+  outline: 3px solid var(--focus-outline);
+  outline-offset: 2px;
 }
 
 .sasha-footer {
   text-align: center;
-  font-size: 0.7rem;
-  color: var(--slate);
-  padding: 4px 0 8px;
+  font-size: 0.78rem;
+  color: #8ab4c4;
+  padding: 6px 0 10px;
   margin: 0;
   flex-shrink: 0;
 }
 
 .sasha-footer a {
-  color: var(--slate);
-  text-decoration: none;
+  color: #64dcc8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   transition: color 0.15s;
 }
 
 .sasha-footer a:hover {
-  color: var(--accent-teal);
+  color: #ffffff;
+}
+
+.sasha-footer a:focus-visible {
+  outline: 2px solid var(--focus-outline);
+  border-radius: 2px;
 }
 
 @media screen and (max-width: 480px) {
