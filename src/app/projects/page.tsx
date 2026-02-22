@@ -1,12 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { projects } from '@/data/projects';
 
 export default function ProjectsPage() {
   const [filter, setFilter] = useState<'all' | 'work' | 'personal'>('all');
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -18,6 +20,25 @@ export default function ProjectsPage() {
     
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  const openModal = (id: string) => {
+    lastFocusedRef.current = document.activeElement as HTMLElement;
+    setSelectedProject(id);
+    setTimeout(() => closeButtonRef.current?.focus(), 50);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+    setTimeout(() => lastFocusedRef.current?.focus(), 50);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedProject) closeModal();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedProject]);
 
   const filteredProjects = projects.filter(project => 
     filter === 'all' || project.type === filter
@@ -64,11 +85,11 @@ export default function ProjectsPage() {
             data-project-type={project.type}
           >
             <div className="body">
-              <h3 className="workTitle">{project.title}</h3>
-              <p className="details" dangerouslySetInnerHTML={{ __html: project.description }} />
+              <h3 className="block font-bold text-[20px] text-[var(--light-sky-blue)] mb-4">{project.title}</h3>
+              <p className="text-[var(--gainsboro)] leading-relaxed mb-4" dangerouslySetInnerHTML={{ __html: project.description }} />
               <button 
                 className="modal-button"
-                onClick={() => setSelectedProject(project.id)}
+                onClick={() => openModal(project.id)}
                 aria-haspopup="dialog"
                 aria-label={`Read more about ${project.title} project`}
               >
@@ -90,13 +111,14 @@ export default function ProjectsPage() {
         >
           <div className="modal-content">
             <div className="modal-header">
-              <span 
-                className="close" 
-                onClick={() => setSelectedProject(null)}
+              <button
+                ref={closeButtonRef}
+                className="close"
+                onClick={closeModal}
                 aria-label="Close dialog"
               >
                 &times;
-              </span>
+              </button>
               <h2 id={`${selectedProject}ModalTitle`}>{selectedProjectData.title}</h2>
             </div>
             <div className="modal-body">
@@ -104,7 +126,7 @@ export default function ProjectsPage() {
                 <div style={{ width: '100%', margin: '0 auto', textAlign: 'center' }}>
                   <img 
                     src={selectedProjectData.image} 
-                    className="img" 
+                    className="max-w-full h-auto rounded-[var(--border-radius)]" 
                     alt={`Screenshot of ${selectedProjectData.title}`} 
                   />
                 </div>
@@ -114,11 +136,11 @@ export default function ProjectsPage() {
               }} />
             </div>
             <div className="modal-footer">
-              <p className="langs">
+              <p className="mb-4">
                 <strong>Languages Used:</strong> {selectedProjectData.technologies.join(', ')}
               </p>
               <p><strong>Find {selectedProjectData.title} Here:</strong></p>
-              <div className="links" style={{ paddingTop: '8px' }}>
+              <div className="flex gap-4 pt-2">
                 {selectedProjectData.links.github && (
                   <a 
                     href={selectedProjectData.links.github} 

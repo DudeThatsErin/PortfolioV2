@@ -6,6 +6,14 @@ import { useState } from 'react';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    const checkbox = document.getElementById('checkbox4') as HTMLInputElement;
+    if (checkbox) {
+      checkbox.checked = !checkbox.checked;
+    }
+    setIsMenuOpen(prev => !prev);
+  };
+
   const closeMenu = () => {
     const checkbox = document.getElementById('checkbox4') as HTMLInputElement;
     if (checkbox) {
@@ -26,7 +34,16 @@ export default function Header() {
         </div>
         <nav role="navigation" aria-label="Main navigation">
           <input type="checkbox" id="checkbox4" className="checkbox4 visually-hidden" aria-hidden="true" />
-          <label htmlFor="checkbox4" className="hamburger-label" aria-label="Toggle navigation menu" tabIndex={0} role="button" aria-expanded="false" aria-controls="main-menu">
+          <label
+            htmlFor="checkbox4"
+            className="hamburger-label"
+            aria-label="Toggle navigation menu"
+            tabIndex={0}
+            role="button"
+            aria-expanded={isMenuOpen}
+            aria-controls="main-menu"
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); } }}
+          >
             <div className="hamburger hamburger4" aria-hidden="true">
               <span className="bar bar1"></span>
               <span className="bar bar2"></span>

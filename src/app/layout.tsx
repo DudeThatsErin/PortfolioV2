@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
-import { Oswald } from "next/font/google";
+import { Oswald, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import SashaWidget from "@/components/SashaWidget";
 
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -30,12 +37,13 @@ export default function RootLayout({
         <script src="https://kit.fontawesome.com/4747ecd26b.js" crossOrigin="anonymous" async></script>
       </head>
       <body
-        className={`${oswald.variable} antialiased`}
+        className={`${oswald.variable} ${inter.variable} antialiased`}
       >
         <Header />
         <div id="main-content">
           {children}
         </div>
+        <SashaWidget />
       </body>
     </html>
   );

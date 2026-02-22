@@ -62,7 +62,7 @@ export default function ContactPage() {
       {/* Contact Form */}
       <form 
         onSubmit={handleSubmit} 
-        className="contact-form"
+        className="max-w-full"
         aria-labelledby="contact-form-heading"
       >
         <h3 id="contact-form-heading" className="visually-hidden">Contact Form</h3>
@@ -80,7 +80,7 @@ export default function ContactPage() {
           </div>
         )}
         
-        <div className="form-group">
+        <div className="mb-6">
           <label htmlFor="name" className="visually-hidden">Full Name (required)</label>
           <input
             type="text"
@@ -91,11 +91,11 @@ export default function ContactPage() {
             onChange={handleChange}
             required
             aria-required="true"
-            className="contact-input"
+            className="w-full px-4 py-3 bg-[rgba(131,212,197,0.05)] border-2 border-[var(--accent-teal)] rounded text-[var(--gainsboro)] font-mono text-base transition-all placeholder:text-[rgba(131,212,197,0.5)] focus:bg-[rgba(131,212,197,0.1)] focus:border-[var(--white)] focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
           />
         </div>
         
-        <div className="form-group">
+        <div className="mb-6">
           <label htmlFor="email" className="visually-hidden">Email Address (required)</label>
           <input
             type="email"
@@ -106,11 +106,11 @@ export default function ContactPage() {
             onChange={handleChange}
             required
             aria-required="true"
-            className="contact-input"
+            className="w-full px-4 py-3 bg-[rgba(131,212,197,0.05)] border-2 border-[var(--accent-teal)] rounded text-[var(--gainsboro)] font-mono text-base transition-all placeholder:text-[rgba(131,212,197,0.5)] focus:bg-[rgba(131,212,197,0.1)] focus:border-[var(--white)] focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
           />
         </div>
         
-        <div className="form-group">
+        <div className="mb-6">
           <label htmlFor="message" className="visually-hidden">Message (required)</label>
           <textarea
             name="message"
@@ -121,14 +121,14 @@ export default function ContactPage() {
             required
             aria-required="true"
             rows={6}
-            className="contact-input contact-textarea"
+            className="w-full px-4 py-3 bg-[rgba(131,212,197,0.05)] border-2 border-[var(--accent-teal)] rounded text-[var(--gainsboro)] font-mono text-base transition-all placeholder:text-[rgba(131,212,197,0.5)] focus:bg-[rgba(131,212,197,0.1)] focus:border-[var(--white)] focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2 resize-y min-h-[150px]"
           />
         </div>
         
         <button
           type="submit"
           disabled={isSubmitting}
-          className="contact-button"
+          className="px-8 py-3 border-2 border-[var(--accent-teal)] bg-transparent text-[var(--accent-teal)] font-mono text-base rounded cursor-pointer transition-all hover:bg-[rgba(131,212,197,0.1)] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>

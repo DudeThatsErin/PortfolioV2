@@ -12,8 +12,8 @@ export default function WorkPage() {
           aria-labelledby={`${job.id}-heading`}
         >
           <h3 id={`${job.id}-heading`}>{job.title}</h3>
-          <p className="title">{job.company}</p>
-          <p className="date">
+          <p className="text-[var(--accent-teal)] font-semibold text-[1.1rem] mb-2 block">{job.company}</p>
+          <p className="text-[var(--light-slate)] font-mono text-[0.9rem] mb-4 block">
             <time dateTime={job.startDate}>{job.startDate}</time> – <time dateTime={job.endDate}>{job.endDate}</time>
           </p>
           <ul>
