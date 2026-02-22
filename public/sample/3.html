@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 03 - Timeline</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--gainsboro);
+            padding: 4rem 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .header .subtitle {
+            color: var(--accent-teal);
+            font-size: 1.3rem;
+        }
+        
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-teal);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+            border: 3px solid var(--black);
+        }
+        
+        .timeline-item h2 {
+            color: var(--light-sky-blue);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-item .date {
+            color: var(--accent-teal);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item p {
+            line-height: 1.6;
+        }
+        
+        .skills {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill {
+            background: rgba(131, 212, 197, 0.1);
+            color: var(--accent-teal);
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Erin Skidds</h1>
+        <div class="subtitle">Full-Stack Engineer Journey</div>
+    </div>
+    
+    <div class="timeline">
+        <div class="timeline-item">
+            <h2>Present - Full-Stack Engineer</h2>
+            <div class="date">2020 - Present</div>
+            <p>Building scalable applications and AI-powered solutions. Specializing in language learning model integration and bot development.</p>
+            <div class="skills">
+                <span class="skill">Python</span>
+                <span class="skill">React</span>
+                <span class="skill">AWS</span>
+                <span class="skill">PyTorch</span>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <h2>River & Reef Aquaculture</h2>
+            <div class="date">2019 - 2020</div>
+            <p>Full Stack Software Engineer developing custom web applications and database solutions.</p>
+            <div class="skills">
+                <span class="skill">Node.js</span>
+                <span class="skill">SQL</span>
+                <span class="skill">Vue.js</span>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <h2>Freelance Developer</h2>
+            <div class="date">2017 - 2019</div>
+            <p>Built websites and applications from scratch for clients including Travel Agent 360.</p>
+            <div class="skills">
+                <span class="skill">WordPress</span>
+                <span class="skill">PHP</span>
+                <span class="skill">JavaScript</span>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <h2>Started Coding Journey</h2>
+            <div class="date">2016</div>
+            <p>Created first Discord bot for CodingHelp server, sparking passion for bot development and AI.</p>
+            <div class="skills">
+                <span class="skill">JavaScript</span>
+                <span class="skill">Discord.js</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

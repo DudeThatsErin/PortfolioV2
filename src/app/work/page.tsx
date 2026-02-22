@@ -3,7 +3,7 @@ import { jobs } from '@/data/jobs';
 export default function WorkPage() {
   return (
     <main id="work-experience" className="about-content" role="main" aria-labelledby="work-heading">
-      <h2 id="work-heading" className="numbered-heading">03. Where I've Worked</h2>
+      <h2 id="work-heading" className="numbered-heading">02. Where I've Worked</h2>
 
       {jobs.map((job, index) => (
         <section 

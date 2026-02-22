@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 11 - Glassmorphism</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            color: var(--gainsboro);
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(131, 212, 197, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .glass-card {
+            background: rgba(48, 47, 47, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(131, 212, 197, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        .hero-glass {
+            text-align: center;
+            padding: 5rem 3rem;
+        }
+        
+        .hero-glass h1 {
+            font-size: 4rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(131, 212, 197, 0.5);
+        }
+        
+        .hero-glass .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-glass p {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .grid-glass {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .glass-card h2 {
+            color: var(--light-sky-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .glass-card h3 {
+            color: var(--accent-teal);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .glass-card p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .glass-button {
+            background: rgba(131, 212, 197, 0.2);
+            border: 1px solid var(--accent-teal);
+            color: var(--accent-teal);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+        
+        .glass-button:hover {
+            background: rgba(131, 212, 197, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(131, 212, 197, 0.3);
+        }
+        
+        .skill-glass {
+            display: inline-block;
+            background: rgba(131, 212, 197, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(131, 212, 197, 0.3);
+            color: var(--accent-teal);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+        }
+        
+        .floating-element {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(131, 212, 197, 0.2) 0%, transparent 70%);
+            filter: blur(40px);
+            z-index: 0;
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+        }
+        
+        .floating-element:nth-child(2) {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: -7s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    
+    <div class="container">
+        <div class="glass-card hero-glass">
+            <h1>Erin Skidds</h1>
+            <div class="subtitle">Full-Stack Engineer</div>
+            <p>
+                Creating elegant, scalable solutions at the intersection of web development and artificial intelligence. 
+                5+ years of experience building the future, one line of code at a time.
+            </p>
+            <a href="#contact" class="glass-button">Get In Touch</a>
+        </div>
+        
+        <div class="grid-glass">
+            <div class="glass-card">
+                <h2>Experience</h2>
+                <h3>River & Reef Aquaculture</h3>
+                <p>Full Stack Software Engineer developing custom web applications and database solutions.</p>
+                <h3>Freelance Developer</h3>
+                <p>Built applications from scratch for clients including Travel Agent 360.</p>
+            </div>
+            
+            <div class="glass-card">
+                <h2>Specialization</h2>
+                <p>AI/ML integration, bot development, and modern web applications using cutting-edge frameworks.</p>
+                <p>Passionate about creating intelligent systems that leverage language learning models.</p>
+            </div>
+        </div>
+        
+        <div class="glass-card">
+            <h2>Technical Stack</h2>
+            <div>
+                <span class="skill-glass">Python</span>
+                <span class="skill-glass">JavaScript</span>
+                <span class="skill-glass">TypeScript</span>
+                <span class="skill-glass">React</span>
+                <span class="skill-glass">Next.js</span>
+                <span class="skill-glass">Node.js</span>
+                <span class="skill-glass">PyTorch</span>
+                <span class="skill-glass">C++/C#</span>
+                <span class="skill-glass">AWS</span>
+                <span class="skill-glass">Vue</span>
+                <span class="skill-glass">Angular</span>
+                <span class="skill-glass">Django</span>
+                <span class="skill-glass">Flask</span>
+                <span class="skill-glass">SQL</span>
+                <span class="skill-glass">MongoDB</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

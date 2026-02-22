@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 10 - Magazine Style</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--gainsboro);
+        }
+        
+        .magazine-header {
+            background: var(--bg-dark);
+            border-bottom: 3px solid var(--accent-teal);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .magazine-header h1 {
+            font-size: 4rem;
+            color: var(--light-sky-blue);
+            letter-spacing: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .magazine-header .tagline {
+            color: var(--accent-teal);
+            font-size: 1.2rem;
+            letter-spacing: 0.2rem;
+        }
+        
+        .magazine-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .feature-article {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 2px solid var(--accent-teal);
+        }
+        
+        .article-content h2 {
+            font-size: 3rem;
+            color: var(--light-sky-blue);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta {
+            color: var(--accent-teal);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+        
+        .article-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .article-sidebar {
+            background: var(--bg-dark);
+            padding: 2rem;
+            border-left: 4px solid var(--accent-teal);
+        }
+        
+        .article-sidebar h3 {
+            color: var(--accent-teal);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+        
+        .sidebar-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(131, 212, 197, 0.2);
+        }
+        
+        .sidebar-item:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar-item h4 {
+            color: var(--light-sky-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .columns {
+            column-count: 2;
+            column-gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .columns h2 {
+            color: var(--light-sky-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            column-span: all;
+        }
+        
+        .columns p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .pullquote {
+            background: var(--bg-dark);
+            border-left: 5px solid var(--accent-teal);
+            padding: 2rem;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            font-style: italic;
+            column-span: all;
+        }
+        
+        .tech-showcase {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .tech-box {
+            background: var(--bg-dark);
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(131, 212, 197, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .tech-box:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-5px);
+        }
+        
+        .tech-box h4 {
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 900px) {
+            .feature-article {
+                grid-template-columns: 1fr;
+            }
+            .columns {
+                column-count: 1;
+            }
+            .tech-showcase {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .magazine-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="magazine-header">
+        <h1>ERIN SKIDDS</h1>
+        <div class="tagline">Full-Stack Engineer & Innovator</div>
+    </header>
+    
+    <div class="magazine-content">
+        <article class="feature-article">
+            <div class="article-content">
+                <div class="article-meta">Feature Story • Full-Stack Development</div>
+                <h2>Crafting Digital Experiences That Matter</h2>
+                <p>
+                    In the ever-evolving landscape of web development, creating meaningful digital 
+                    experiences requires more than just technical prowess—it demands vision, creativity, 
+                    and an unwavering commitment to excellence.
+                </p>
+                <p>
+                    With over 5 years of professional experience, I've dedicated my career to building 
+                    scalable applications that not only meet technical requirements but exceed user 
+                    expectations. From AI-powered Discord bots to enterprise web applications, each 
+                    project represents a unique opportunity to push boundaries and explore new possibilities.
+                </p>
+                <p>
+                    My journey began 9 years ago with a simple Discord bot for my CodingHelp server. 
+                    That initial spark of curiosity evolved into a passion for creating intelligent 
+                    systems that leverage the latest in AI and machine learning technologies.
+                </p>
+            </div>
+            
+            <aside class="article-sidebar">
+                <h3>At a Glance</h3>
+                <div class="sidebar-item">
+                    <h4>Experience</h4>
+                    <p>5+ years in full-stack development</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Specialization</h4>
+                    <p>AI/ML Integration, Bot Development, Web Applications</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Recent Work</h4>
+                    <p>River & Reef Aquaculture, Travel Agent 360</p>
+                </div>
+                <div class="sidebar-item">
+                    <h4>Education</h4>
+                    <p>Self-taught developer with continuous learning focus</p>
+                </div>
+            </aside>
+        </article>
+        
+        <div class="columns">
+            <h2>Technical Expertise</h2>
+            <p>
+                My technical toolkit spans the entire development stack, from backend systems to 
+                frontend interfaces. In backend development, I'm proficient in Python, C++/C#, 
+                Node.js, and PHP, with extensive experience in frameworks like Django and Flask.
+            </p>
+            <div class="pullquote">
+                "The best code is not just functional—it's elegant, maintainable, and scalable."
+            </div>
+            <p>
+                On the frontend, I specialize in modern JavaScript frameworks including React, 
+                Next.js, Vue, and Angular. I believe in creating responsive, accessible interfaces 
+                that provide exceptional user experiences across all devices.
+            </p>
+            <p>
+                My passion for AI and machine learning has led me to work extensively with PyTorch 
+                and language learning models, integrating cutting-edge AI capabilities into practical 
+                applications. This intersection of traditional web development and AI represents the 
+                future of software engineering.
+            </p>
+        </div>
+        
+        <div class="tech-showcase">
+            <div class="tech-box">
+                <h4>Backend</h4>
+                <p>Python, Node.js, C++/C#</p>
+            </div>
+            <div class="tech-box">
+                <h4>Frontend</h4>
+                <p>React, Next.js, Vue</p>
+            </div>
+            <div class="tech-box">
+                <h4>AI/ML</h4>
+                <p>PyTorch, LLMs</p>
+            </div>
+            <div class="tech-box">
+                <h4>Cloud</h4>
+                <p>AWS, EC2, Lambda</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 08 - Bento Box</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+            --border-color: #6c6c6c;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--gainsboro);
+            padding: 2rem;
+        }
+        
+        .bento-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 1.5rem;
+        }
+        
+        .bento-item {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bento-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-teal);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .bento-item:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-3px);
+        }
+        
+        .bento-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .hero {
+            grid-column: span 2;
+            grid-row: span 2;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+        }
+        
+        .wide {
+            grid-column: span 2;
+        }
+        
+        .tall {
+            grid-row: span 2;
+        }
+        
+        .bento-item h2 {
+            color: var(--light-sky-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .bento-item h3 {
+            color: var(--accent-teal);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .bento-item p {
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .stat {
+            font-size: 3rem;
+            color: var(--accent-teal);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--gainsboro);
+            font-size: 1rem;
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-tag {
+            background: rgba(131, 212, 197, 0.1);
+            color: var(--accent-teal);
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 1200px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero, .wide, .tall {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bento-grid">
+        <div class="bento-item hero">
+            <h1>Erin Skidds</h1>
+            <div class="subtitle">Full-Stack Engineer</div>
+        </div>
+        
+        <div class="bento-item">
+            <div class="stat">5+</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        
+        <div class="bento-item">
+            <div class="stat">50+</div>
+            <div class="stat-label">Projects Completed</div>
+        </div>
+        
+        <div class="bento-item wide">
+            <h2>Specialization</h2>
+            <p>AI/ML integration, bot development, and full-stack web applications using modern frameworks.</p>
+        </div>
+        
+        <div class="bento-item tall">
+            <h2>Backend</h2>
+            <div class="tech-list">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">C++/C#</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">Django</span>
+                <span class="tech-tag">Flask</span>
+            </div>
+        </div>
+        
+        <div class="bento-item">
+            <h3>River & Reef</h3>
+            <p>Full Stack Software Engineer</p>
+        </div>
+        
+        <div class="bento-item tall">
+            <h2>Frontend</h2>
+            <div class="tech-list">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">Vue</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Angular</span>
+            </div>
+        </div>
+        
+        <div class="bento-item">
+            <h3>Freelance</h3>
+            <p>Travel Agent 360 & more</p>
+        </div>
+        
+        <div class="bento-item wide">
+            <h2>AI & Cloud</h2>
+            <div class="tech-list">
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">LLMs</span>
+                <span class="tech-tag">AWS</span>
+                <span class="tech-tag">EC2</span>
+                <span class="tech-tag">Lambda</span>
+                <span class="tech-tag">DynamoDB</span>
+            </div>
+        </div>
+        
+        <div class="bento-item">
+            <h3>Contact</h3>
+            <p>Let's build something amazing together</p>
+        </div>
+    </div>
+</body>
+</html>

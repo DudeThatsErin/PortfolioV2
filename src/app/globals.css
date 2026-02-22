@@ -67,6 +67,9 @@ body {
   line-height: 1.5;
   text-decoration: none;
   text-transform: none;
+  background: #0a0a0a url("/assets/background.png?v=3") repeat-y center;
+  background-size: 800px auto;
+  background-blend-mode: overlay;
   -webkit-font-smoothing: antialiased;
   color: var(--gainsboro);
   overflow-x: hidden;
@@ -168,10 +171,13 @@ a:hover {
   text-decoration-color: var(--white);
 }
 
+a:focus {
+  outline: none;
+}
+
 a:focus-visible {
-  outline: 3px solid var(--focus-outline);
+  outline: 2px solid var(--accent-teal);
   outline-offset: 2px;
-  text-decoration: underline;
 }
 
 button:focus-visible,
@@ -233,7 +239,7 @@ select:focus-visible,
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.15em solid var(--celadon-blue);
-  animation: typing 3.5s steps(60, end), blink-caret 0.75s step-end infinite;
+  animation: typing 4s steps(60, end), blink-caret 1.5s step-end infinite 4s;
 }
 
 @media screen and (max-width: 1200px) {
@@ -302,6 +308,14 @@ nav button:hover {
   color: var(--black);
 }
 
+nav button:focus {
+  outline: none;
+}
+
+nav button:focus-visible {
+  outline: 2px solid var(--accent-teal);
+  outline-offset: 2px;
+}
 
 .hamburger,
 label[for="checkbox4"] { display: none; }
@@ -1269,5 +1283,182 @@ button.modal-button:focus-visible {
   .sasha-bubble {
     bottom: 1rem;
     right: 1rem;
+  }
+}
+
+/* Project Case Studies */
+.projects-case-studies {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.case-study-card {
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  transition: var(--transition);
+  border-left: 4px solid var(--accent-teal);
+}
+
+.case-study-card:hover {
+  border-color: var(--accent-teal);
+  box-shadow: 0 10px 30px rgba(131, 212, 197, 0.15);
+  transform: translateY(-3px);
+}
+
+.case-study-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.case-study-title {
+  color: var(--light-sky-blue);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  flex: 1;
+  min-width: 250px;
+}
+
+.project-type-badge {
+  background: rgba(131, 212, 197, 0.15);
+  color: var(--accent-teal);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--accent-teal);
+}
+
+.case-study-description {
+  color: var(--gainsboro);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.case-study-section {
+  margin-bottom: 1.8rem;
+}
+
+.case-study-label {
+  color: var(--accent-teal);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.case-study-section p {
+  color: var(--gainsboro);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.case-study-footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.tech-stack {
+  margin-bottom: 1.5rem;
+}
+
+.tech-stack strong {
+  color: var(--light-sky-blue);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.tech-tag {
+  background: rgba(131, 212, 197, 0.1);
+  color: var(--accent-teal);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(131, 212, 197, 0.3);
+  transition: var(--transition);
+}
+
+.tech-tag:hover {
+  background: rgba(131, 212, 197, 0.2);
+  border-color: var(--accent-teal);
+}
+
+.project-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-teal);
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid var(--accent-teal);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.project-link:hover {
+  background: var(--accent-teal);
+  color: var(--black);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.project-link i {
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .case-study-card {
+    padding: 1.5rem;
+  }
+  
+  .case-study-title {
+    font-size: 1.4rem;
+  }
+  
+  .case-study-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .project-type-badge {
+    align-self: flex-start;
+  }
+  
+  .project-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .project-link {
+    justify-content: center;
+    width: 100%;
   }
 }

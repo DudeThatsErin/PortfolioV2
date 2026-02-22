@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 07 - Terminal Style</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--accent-teal);
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        
+        .terminal {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #0a0a0a;
+            border: 2px solid var(--accent-teal);
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(131, 212, 197, 0.3);
+        }
+        
+        .terminal-header {
+            background: var(--bg-dark);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid var(--accent-teal);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+        }
+        
+        .terminal-title {
+            margin-left: auto;
+            color: var(--gainsboro);
+            font-size: 0.9rem;
+        }
+        
+        .terminal-body {
+            padding: 2rem;
+            min-height: 70vh;
+        }
+        
+        .prompt {
+            color: var(--accent-teal);
+            margin-right: 0.5rem;
+        }
+        
+        .command {
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .output {
+            color: var(--gainsboro);
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .output h1 {
+            color: var(--light-sky-blue);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .output .highlight {
+            color: var(--accent-teal);
+        }
+        
+        .output ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .output li::before {
+            content: "→ ";
+            color: var(--accent-teal);
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: var(--accent-teal);
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .section-divider {
+            border-top: 1px dashed var(--accent-teal);
+            margin: 2rem 0;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-button"></div>
+            <div class="terminal-button"></div>
+            <div class="terminal-button"></div>
+            <div class="terminal-title">erin@portfolio:~</div>
+        </div>
+        
+        <div class="terminal-body">
+            <div class="command">
+                <span class="prompt">$</span> cat about.txt
+            </div>
+            <div class="output">
+                <h1>Erin Skidds</h1>
+                <p class="highlight">Full-Stack Engineer | AI Specialist</p>
+                <p>Building intelligent systems and elegant web applications for 5+ years.</p>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <div class="command">
+                <span class="prompt">$</span> ls skills/
+            </div>
+            <div class="output">
+                <ul>
+                    <li>backend/ → Python, C++/C#, Node.js, PHP</li>
+                    <li>frontend/ → React, Next.js, Vue, Angular, TypeScript</li>
+                    <li>ai-ml/ → PyTorch, LLMs, Discord Bots</li>
+                    <li>cloud/ → AWS (EC2, Lambda, S3, DynamoDB)</li>
+                    <li>databases/ → MySQL, PostgreSQL, MongoDB</li>
+                </ul>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <div class="command">
+                <span class="prompt">$</span> cat experience.log
+            </div>
+            <div class="output">
+                <p><strong>[2020-Present]</strong> Full-Stack Engineer</p>
+                <p>→ Building scalable applications with modern frameworks</p>
+                <p>→ Integrating AI/ML models into production systems</p>
+                <br>
+                <p><strong>[2019-2020]</strong> River & Reef Aquaculture</p>
+                <p>→ Full Stack Software Engineer</p>
+                <p>→ Custom web applications and database solutions</p>
+                <br>
+                <p><strong>[2017-2019]</strong> Freelance Developer</p>
+                <p>→ Built applications for clients like Travel Agent 360</p>
+            </div>
+            
+            <div class="section-divider"></div>
+            
+            <div class="command">
+                <span class="prompt">$</span> echo $CONTACT
+            </div>
+            <div class="output">
+                <p>GitHub: github.com/DudeThatsErin</p>
+                <p>LinkedIn: linkedin.com/in/erinskidds</p>
+                <p>Email: erin.skidds@gmail.com</p>
+            </div>
+            
+            <div class="command">
+                <span class="prompt">$</span> <span class="cursor"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout 04 - Split Screen</title>
+    <style>
+        :root {
+            --accent-teal: #83d4c5;
+            --light-sky-blue: hsla(190, 52%, 67%, 1);
+            --gainsboro: hsla(90, 8%, 85%, 1);
+            --bg-dark: #302f2f;
+            --black: #010101;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background: var(--black);
+            color: var(--gainsboro);
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 100vh;
+        }
+        
+        .left-panel {
+            background: var(--black);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+            border-right: 2px solid var(--accent-teal);
+        }
+        
+        .right-panel {
+            background: var(--bg-dark);
+            padding: 4rem;
+            overflow-y: auto;
+        }
+        
+        .left-panel h1 {
+            font-size: 3.5rem;
+            color: var(--light-sky-blue);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .left-panel .role {
+            font-size: 1.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 2rem;
+        }
+        
+        .left-panel .bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            border: 2px solid var(--accent-teal);
+            color: var(--accent-teal);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .cta-button:hover {
+            background: var(--accent-teal);
+            color: var(--black);
+        }
+        
+        .right-panel h2 {
+            color: var(--light-sky-blue);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section h3 {
+            color: var(--accent-teal);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+        
+        .section li::before {
+            content: "▸ ";
+            color: var(--accent-teal);
+            margin-right: 0.5rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 900px) {
+            .split-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            .left-panel {
+                border-right: none;
+                border-bottom: 2px solid var(--accent-teal);
+            }
+            body {
+                overflow: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="split-container">
+        <div class="left-panel">
+            <h1>Erin<br>Skidds</h1>
+            <div class="role">Full-Stack Engineer</div>
+            <p class="bio">
+                Building intelligent systems and elegant web applications with 5+ years of experience. 
+                Specializing in AI/ML integration and modern web technologies.
+            </p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+        
+        <div class="right-panel">
+            <h2>Expertise</h2>
+            
+            <div class="section">
+                <h3>Backend Development</h3>
+                <ul>
+                    <li>Python, C++/C#, Node.js, PHP</li>
+                    <li>Django, Flask, Express</li>
+                    <li>RESTful APIs & GraphQL</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h3>Frontend Development</h3>
+                <ul>
+                    <li>React, Next.js, Vue, Angular</li>
+                    <li>TypeScript, JavaScript ES6+</li>
+                    <li>Responsive Design & CSS3</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h3>AI & Machine Learning</h3>
+                <ul>
+                    <li>PyTorch, TensorFlow</li>
+                    <li>Language Learning Models</li>
+                    <li>Bot Development & Automation</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h3>Cloud & DevOps</h3>
+                <ul>
+                    <li>AWS (EC2, Lambda, S3, DynamoDB)</li>
+                    <li>CI/CD Pipelines</li>
+                    <li>Docker & Containerization</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
