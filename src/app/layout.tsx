@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Oswald, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import SashaWidget from "@/components/SashaWidget";
+import SashaWidget from "@/components/SashaWidget"
+import SashaHint from "@/components/SashaHint";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -46,6 +47,7 @@ export default function RootLayout({
         <div id="main-content">
           {children}
         </div>
+        <SashaHint />
         <SashaWidget />
       </body>
     </html>

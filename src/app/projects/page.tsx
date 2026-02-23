@@ -18,7 +18,7 @@ export default function ProjectsPage() {
         Each project below showcases the problem I solved, my technical approach, measurable results, and my specific contribution to the work.
       </p>
 
-      <div className="filter-buttons" role="tablist" aria-label="Filter projects by category">
+      {/* <div className="filter-buttons" role="tablist" aria-label="Filter projects by category">
         <button
           className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
           onClick={() => setFilter('all')}
@@ -43,7 +43,7 @@ export default function ProjectsPage() {
         >
           Personal Projects
         </button>
-      </div>
+      </div> */}
       
       <div className="projects-case-studies" role="tabpanel">
         {filteredProjects.map((project) => (
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
           >
             <div className="case-study-header">
               <h3 className="case-study-title">{project.title}</h3>
-              <span className="project-type-badge">{project.type === 'work' ? 'Professional' : 'Personal'}</span>
+              {/* <span className="project-type-badge">{project.type === 'work' ? 'Professional' : 'Personal'}</span> */}
             </div>
             
             <p className="case-study-description">{project.description}</p>

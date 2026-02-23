@@ -30,7 +30,7 @@ export default function Home() {
         </div>
 
         <div style={{ marginTop: '3rem' }}>
-          <Link href="/contact" className="contact-link">
+          <Link href="/contact" className="border-2 border-[var(--accent-teal)] rounded-full !p-3 cursor-pointer">
             <button className="contact" aria-label="Get in touch with Erin">Get in Touch</button>
           </Link>
         </div>

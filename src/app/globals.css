@@ -910,7 +910,7 @@ button.modal-button:focus-visible {
     display: block;
     position: fixed;
     top: 1rem;
-    right: 1rem;
+    right: 50px;
     z-index: 1001;
     cursor: pointer;
     width: 30px;
@@ -1047,7 +1047,7 @@ button.modal-button:focus-visible {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--accent-teal);
+  background: #41af8e;
   color: #0a192f;
   border: 2px solid rgba(0,0,0,0.2);
   font-size: 1.6rem;
@@ -1068,6 +1068,44 @@ button.modal-button:focus-visible {
 .sasha-bubble:focus-visible {
   outline: 3px solid var(--focus-outline);
   outline-offset: 3px;
+}
+
+.sasha-hint {
+  position: fixed;
+  bottom: 6rem;
+  right: 1.5rem;
+  color: #5eead4;
+  font-size: 1.1rem;
+  font-family: var(--font-mono);
+  text-align: right;
+  pointer-events: none;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.sasha-hint-arrow {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #5eead4;
+  align-self: flex-end;
+  margin-right: 18px;
+}
+
+@keyframes sasha-type {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.sasha-hint-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: sasha-type 1.5s steps(30, end) 1s forwards;
+  border-right: 2px solid #5eead4;
 }
 
 .sasha-panel {

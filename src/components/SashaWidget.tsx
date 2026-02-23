@@ -201,7 +201,9 @@ export default function SashaWidget() {
               onClick={(e) => {
                 e.preventDefault()
                 const base = process.env.NEXT_PUBLIC_SASHA_FRONTEND_URL || 'http://localhost:3000'
-                window.open(`${base}?import_chat=${chatId.current}`, '_blank', 'noopener,noreferrer')
+                const last10 = messages.slice(-10).map(m => ({ role: m.role, content: m.content }))
+                const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(last10))))
+                window.open(`${base}?import_chat=${chatId.current}&msgs=${encoded}`, '_blank', 'noopener,noreferrer')
               }}
             >
               Open full chat →
@@ -212,7 +214,13 @@ export default function SashaWidget() {
 
       {/* Floating bubble */}
       <button
-        onClick={() => setOpen(o => !o)}
+        onClick={() => {
+          if (!open) {
+            localStorage.setItem('sasha_widget_opened', '1')
+            window.dispatchEvent(new Event('sasha_opened'))
+          }
+          setOpen(o => !o)
+        }}
         aria-label={open ? 'Close Sasha chat' : "Chat with Sasha, Erin's AI"}
         aria-expanded={open}
         className="sasha-bubble"
