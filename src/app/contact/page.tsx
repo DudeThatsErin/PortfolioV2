@@ -63,7 +63,7 @@ export default function ContactPage() {
       {/* Contact Form */}
       <form 
         onSubmit={handleSubmit} 
-        className="max-w-full"
+        className="max-w-full flex flex-col gap-4"
         aria-labelledby="contact-form-heading"
       >
         <h3 id="contact-form-heading" className="visually-hidden">Contact Form</h3>
@@ -81,7 +81,7 @@ export default function ContactPage() {
           </div>
         )}
         
-        <div className="mb-6">
+        <div className="mb-8">
           <label htmlFor="name" className="visually-hidden">Full Name (required)</label>
           <input
             type="text"
@@ -92,11 +92,11 @@ export default function ContactPage() {
             onChange={handleChange}
             required
             aria-required="true"
-            className="w-full px-4 py-3 bg-[rgba(131,212,197,0.05)] border-2 border-[var(--accent-teal)] rounded text-[var(--gainsboro)] font-mono text-base transition-all placeholder:text-[rgba(131,212,197,0.5)] focus:bg-[rgba(131,212,197,0.1)] focus:border-[var(--white)] focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+            className="w-full px-4 py-4 h-14 bg-[rgba(131,212,197,0.05)] border-2 border-[var(--accent-teal)] rounded text-[var(--gainsboro)] font-mono text-base transition-all placeholder:text-[rgba(131,212,197,0.5)] focus:bg-[rgba(131,212,197,0.1)] focus:border-[var(--white)] focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
           />
         </div>
         
-        <div className="mb-6">
+        <div className="mb-8">
           <label htmlFor="email" className="visually-hidden">Email Address (required)</label>
           <input
             type="email"
@@ -107,11 +107,11 @@ export default function ContactPage() {
             onChange={handleChange}
             required
             aria-required="true"
-            className="w-full px-4 py-3 bg-[rgba(131,212,197,0.05)] border-2 border-[var(--accent-teal)] rounded text-[var(--gainsboro)] font-mono text-base transition-all placeholder:text-[rgba(131,212,197,0.5)] focus:bg-[rgba(131,212,197,0.1)] focus:border-[var(--white)] focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+            className="w-full px-4 py-4 h-14 bg-[rgba(131,212,197,0.05)] border-2 border-[var(--accent-teal)] rounded text-[var(--gainsboro)] font-mono text-base transition-all placeholder:text-[rgba(131,212,197,0.5)] focus:bg-[rgba(131,212,197,0.1)] focus:border-[var(--white)] focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
           />
         </div>
         
-        <div className="mb-6">
+        <div className="mb-8">
           <label htmlFor="message" className="visually-hidden">Message (required)</label>
           <textarea
             name="message"
@@ -129,7 +129,7 @@ export default function ContactPage() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="px-8 py-3 border-2 border-[var(--accent-teal)] bg-transparent text-[var(--accent-teal)] font-mono text-base rounded cursor-pointer transition-all hover:bg-[rgba(131,212,197,0.1)] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
+          className="px-8 py-3 border-2 border-[var(--accent-teal)] p-3 rounded-full bg-transparent text-[var(--accent-teal)] font-mono text-base rounded cursor-pointer transition-all hover:bg-[rgba(131,212,197,0.1)] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-[3px] focus-visible:outline-[var(--focus-outline)] focus-visible:outline-offset-2"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
@@ -166,7 +166,7 @@ export default function ContactPage() {
         </div>
 
         {/* PDF Preview */}
-        <div className="pdf-preview">
+        <div className="h-[600px] w-full">
           <iframe
             src="/assets/ErinSkiddsResume.pdf?v=9"
             width="100%"

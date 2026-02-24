@@ -927,6 +927,13 @@ button.modal-button:focus-visible {
     transition: var(--transition);
   }
 
+  .checkbox4:checked ~ label[for="checkbox4"] {
+    position: fixed;
+    top: 1rem;
+    right: 50px;
+    z-index: 1002;
+  }
+
   .checkbox4:checked ~ label .hamburger .bar1 { transform: rotate(45deg) translate(6px, 6px); }
   .checkbox4:checked ~ label .hamburger .bar2,
   .checkbox4:checked ~ label .hamburger .bar3 { opacity: 0; }
