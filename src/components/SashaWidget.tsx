@@ -36,8 +36,10 @@ export default function SashaWidget() {
         const cleaned = parsed.filter(m =>
           m.content !== '__SASHA_OFFLINE__' &&
           m.content !== 'SASHA_OFFLINE' &&
+          !m.isOffline &&
           !m.content.includes('[LinkedIn](https://') &&
-          !m.content.includes('[GitHub](https://')
+          !m.content.includes('[GitHub](https://') &&
+          !m.content.includes("I'm offline right now")
         )
         if (cleaned.length > 0) setMessages(cleaned)
       } catch {}
