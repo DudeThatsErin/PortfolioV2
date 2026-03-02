@@ -17,21 +17,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "sasha-v1",
-    title: "Sasha AI v1 - Personal Knowledge Assistant",
-    description: "An AI-powered personal assistant that answers questions about my experience, knowledge, and personality — deployed live as a portfolio widget and Discord bot.",
-    problem: "Static resumes and portfolios can't answer follow-up questions or convey personality. I wanted visitors to my portfolio to have a genuine interactive conversation with 'me' rather than read a wall of text — and I wanted a scalable way to manage what Sasha knows over time.",
-    approach: "Built a FastAPI backend running a locally-hosted LLM (Qwen 2.5 via Ollama) with a curated SQLite knowledge base. Designed a teach-intent detection system so Sasha can recognize when someone wants her to learn something new, queue it for approval, and ping me via Discord buttons to approve or deny it. Built a Next.js chat frontend and a Discord bot (Erin's Little Helper) for knowledge management via slash commands.",
-    results: "Deployed and running live at chat.erinskidds.com. Sasha correctly answers questions about my tech stack, work history, and personality. The approval workflow makes the knowledge base easy to grow without touching code. Discord slash commands allow full CRUD on the knowledge base from anywhere.",
-    contribution: "Individual project — designed full architecture, built backend, frontend, Discord bot, and deployment pipeline from scratch.",
-    technologies: ["Python", "FastAPI", "Ollama", "Qwen 2.5", "SQLite", "Next.js", "TypeScript", "Discord.py", "NSSM"],
-    type: "personal",
-    links: {
-      github: "https://github.com/DudeThatsErin/sasha-ai",
-      demo: "https://chat.erinskidds.com"
-    }
-  },
-  {
     id: "sasha-v2",
     title: "Sasha AI v2 - RAG-Powered Knowledge Assistant",
     description: "A ground-up rebuild of Sasha AI with Retrieval-Augmented Generation (RAG), replacing the static prompt injection of v1 with a semantic vector search pipeline for more accurate and context-aware responses.",
@@ -40,6 +25,21 @@ export const projects: Project[] = [
     results: "Significantly more accurate responses on large knowledge bases — only relevant context reaches the LLM. RAG index auto-syncs on startup and on every CRUD operation so it's always current. The v1 frontend works with the v2 backend with zero changes, making the upgrade seamless. New Discord commands (/knowledge-rebuild, /rag-status) give full visibility into the vector index.",
     contribution: "Individual project — designed and implemented the RAG pipeline, ChromaDB integration, embedding sync system, and all new endpoints while maintaining full backward compatibility.",
     technologies: ["Python", "FastAPI", "ChromaDB", "nomic-embed-text", "Ollama", "Qwen 2.5", "RAG", "SQLite", "Next.js", "TypeScript", "Discord.py"],
+    type: "personal",
+    links: {
+      github: "https://github.com/DudeThatsErin/sasha-ai",
+      demo: "https://chat.erinskidds.com"
+    }
+  },
+  {
+    id: "sasha-v1",
+    title: "Sasha AI v1 - Personal Knowledge Assistant",
+    description: "An AI-powered personal assistant that answers questions about my experience, knowledge, and personality — deployed live as a portfolio widget and Discord bot.",
+    problem: "Static resumes and portfolios can't answer follow-up questions or convey personality. I wanted visitors to my portfolio to have a genuine interactive conversation with 'me' rather than read a wall of text — and I wanted a scalable way to manage what Sasha knows over time.",
+    approach: "Built a FastAPI backend running a locally-hosted LLM (Qwen 2.5 via Ollama) with a curated SQLite knowledge base. Designed a teach-intent detection system so Sasha can recognize when someone wants her to learn something new, queue it for approval, and ping me via Discord buttons to approve or deny it. Built a Next.js chat frontend and a Discord bot (Erin's Little Helper) for knowledge management via slash commands.",
+    results: "Deployed and running live at chat.erinskidds.com. Sasha correctly answers questions about my tech stack, work history, and personality. The approval workflow makes the knowledge base easy to grow without touching code. Discord slash commands allow full CRUD on the knowledge base from anywhere.",
+    contribution: "Individual project — designed full architecture, built backend, frontend, Discord bot, and deployment pipeline from scratch.",
+    technologies: ["Python", "FastAPI", "Ollama", "Qwen 2.5", "SQLite", "Next.js", "TypeScript", "Discord.py", "NSSM"],
     type: "personal",
     links: {
       github: "https://github.com/DudeThatsErin/sasha-ai",
