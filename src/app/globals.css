@@ -25,19 +25,19 @@
   --font-sans: "Oswald", sans-serif;
   --font-mono: "Courier New", monospace;
   --font-readable: var(--font-inter), "Inter", system-ui, sans-serif;
-  --fz-xs: 13px;
-  --fz-md: 16px;
-  --fz-xl: 20px;
-  --fz-heading: 32px;
+  --fz-xs: 0.8125rem;
+  --fz-md: 1rem;
+  --fz-xl: 1.25rem;
+  --fz-heading: 2rem;
 
   /* Layout */
   --section-padding: 1rem;
-  --border-radius: 5px;
+  --border-radius: 0.3125rem;
 
   /* Transitions */
   --easing: cubic-bezier(0.645, 0.045, 0.355, 1);
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-  --hamburger-width: 30px;
+  --hamburger-width: 1.875rem;
 }
 
 /* Base styles */
@@ -67,8 +67,8 @@ body {
   line-height: 1.5;
   text-decoration: none;
   text-transform: none;
-  background: #0a0a0a url("/assets/background.png?v=3") repeat-y center;
-  background-size: 800px auto;
+  background: url("/assets/background.png?v=3") repeat-y center;
+  background-size: 50rem auto;
   background-blend-mode: overlay;
   -webkit-font-smoothing: antialiased;
   color: var(--gainsboro);
@@ -80,7 +80,7 @@ body {
 
 /* Main content container */
 #main-content {
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   width: 100%;
   overflow-x: hidden;
@@ -89,11 +89,11 @@ body {
 /* Skip to content link */
 .skip-to-content {
   position: absolute;
-  top: -40px;
+  top: -2.5rem;
   left: 0;
   background-color: var(--accent-teal);
   color: var(--black);
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   font-weight: bold;
   z-index: 10000;
@@ -130,7 +130,7 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -139,7 +139,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--sapphire-blue);
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -148,11 +148,11 @@ body {
 
 /* Typography */
 p {
-  padding: 4px 0;
+  padding: 0.25rem 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 10px;
+  margin: 0 0 0.625rem;
   font-weight: 600;
   color: var(--light-sky-blue);
   line-height: 1.1;
@@ -208,7 +208,7 @@ select:focus-visible,
   margin: 0;
   padding: 4rem 2rem 2rem;
   width: 100%;
-  max-width: 800px;
+  max-width: 50rem;
   position: relative;
   top: 10%;
   overflow-x: hidden;
@@ -218,13 +218,13 @@ select:focus-visible,
   margin: 0;
   padding: 4rem 2rem 2rem;
   width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
   position: relative;
   top: 10%;
   overflow-x: hidden;
 }
 
-.about-content p { margin: 20px 0; }
+.about-content p { margin: 1.25rem 0; }
 
 /* =====================
    Typography
@@ -232,10 +232,10 @@ select:focus-visible,
 .name {
   text-align: left;
   display: block;
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 600;
   color: var(--light-sky-blue);
-  margin: 10px 0;
+  margin: 0.625rem 0;
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.15em solid var(--celadon-blue);
@@ -261,7 +261,7 @@ nav {
   left: 0;
   width: 100%;
   color: var(--dark-sky-blue);
-  font-size: 20px;
+  font-size: 1.25rem;
   z-index: 100;
   text-align: right;
   padding: 0 2rem;
@@ -292,11 +292,15 @@ nav {
   margin: 0 1rem;
 }
 
+.menu a:hover {
+  color: #ffffff;
+}
+
 nav button {
   background-color: transparent;
   border: 2px solid var(--accent-teal);
   color: var(--accent-teal);
-  font-size: 20px;
+  font-size: 1.25rem;
   border-radius: var(--border-radius);
   padding: 0.5rem 1rem;
   transition: var(--transition);
@@ -306,6 +310,23 @@ nav button {
 nav button:hover {
   background-color: var(--accent-teal);
   color: var(--black);
+}
+
+button.contact {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: var(--accent-teal);
+  border: 2px solid var(--accent-teal);
+  border-radius: var(--border-radius);
+}
+
+button.contact:hover {
+  background-color: var(--accent-teal);
+  color: var(--black);
+  border: 2px solid var(--accent-teal);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
 nav button:focus {
@@ -332,7 +353,7 @@ label[for="checkbox4"] { display: none; }
 
 .logo a {
   color: var(--accent-teal);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
@@ -342,7 +363,7 @@ label[for="checkbox4"] { display: none; }
 .left-sidebar {
   margin: 0;
   padding: 0;
-  width: 60px;
+  width: 3.75rem;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -352,15 +373,15 @@ label[for="checkbox4"] { display: none; }
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 60px;
-  margin-left: 10px;
+  width: 3.75rem;
+  margin-left: 0.625rem;
 }
 
 .left-sidebar .bottom a {
   color: var(--accent-teal);
   display: block;
-  font-size: 30px;
-  margin: 10px 0;
+  font-size: 1.875rem;
+  margin: 0.625rem 0;
   transition: var(--transition);
 }
 
@@ -399,7 +420,7 @@ label[for="checkbox4"] { display: none; }
   display: flex;
   align-items: center;
   position: relative;
-  margin: 10px 0 40px;
+  margin: 0.625rem 0 2.5rem;
   width: 100%;
   font-size: var(--fz-heading);
   white-space: nowrap;
@@ -412,27 +433,27 @@ label[for="checkbox4"] { display: none; }
   content: "";
   display: block;
   position: relative;
-  width: 300px;
+  width: 18.75rem;
   height: 1px;
-  margin-left: 20px;
+  margin-left: 1.25rem;
   background-color: var(--lightest-slate);
 }
 
 /* List Styles */
 .list {
   column-count: 2;
-  padding-top: 4px;
+  padding-top: 0.25rem;
 }
 
 .list li {
   list-style: none;
-  padding-top: 4px;
+  padding-top: 0.25rem;
   color: var(--gainsboro);
 }
 
 .list li::before {
   content: "\00BB";
-  padding-right: 4px;
+  padding-right: 0.25rem;
   color: var(--accent-teal);
 }
 
@@ -449,7 +470,7 @@ label[for="checkbox4"] { display: none; }
 }
 
 .section p {
-  padding: 4px 0;
+  padding: 0.25rem 0;
 }
 
 .section ul {
@@ -520,7 +541,7 @@ label[for="checkbox4"] { display: none; }
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   padding: 1.5rem;
-  min-height: 200px;
+  min-height: 12.5rem;
 }
 
 /* =====================
@@ -531,7 +552,7 @@ label[for="checkbox4"] { display: none; }
 button.modal-button {
   margin: auto auto 0.625rem;
   text-align: center;
-  border-radius: 50px;
+  border-radius: 3.125rem;
   border: 2px solid var(--accent-teal);
   background-color: transparent;
   color: var(--accent-teal);
@@ -574,7 +595,7 @@ button.modal-button:focus-visible {
 }
 
 .modal-header {
-  padding: 2px 16px;
+  padding: 0.125rem 1rem;
   background-color: var(--bg-dark);
   color: var(--light-sky-blue);
   border-bottom: 1px solid var(--border-color);
@@ -584,12 +605,12 @@ button.modal-button:focus-visible {
 }
 
 .modal-body {
-  padding: 2px 16px;
+  padding: 0.125rem 1rem;
   color: var(--gainsboro);
 }
 
 .modal-footer {
-  padding: 2px 16px;
+  padding: 0.125rem 1rem;
   background-color: var(--bg-dark);
   color: var(--gainsboro);
   border-top: 1px solid var(--border-color);
@@ -598,7 +619,7 @@ button.modal-button:focus-visible {
 .close {
   color: var(--light-slate);
   float: right;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: bold;
   cursor: pointer;
 }
@@ -658,7 +679,7 @@ button.modal-button:focus-visible {
 .certificate-image-wrapper {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 12.5rem;
   overflow: hidden;
   background: var(--darkest-indigo-dye);
 }
@@ -703,7 +724,7 @@ button.modal-button:focus-visible {
 .certificate-overlay span {
   font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625rem;
 }
 
 .certificate-info {
@@ -861,13 +882,13 @@ button.modal-button:focus-visible {
   .about-content {
     top: 5%;
     padding: 1rem;
-    margin-top: 80px;
+    margin-top: 5rem;
     max-width: 100%;
     background: #000;
   }
 
   .logo { top: 1rem; }
-  .logo a { font-size: 18px; }
+  .logo a { font-size: 1.125rem; }
   .left-sidebar { display: none; }
 
   nav { padding: 0; }
@@ -910,12 +931,12 @@ button.modal-button:focus-visible {
     display: block;
     position: fixed;
     top: 1rem;
-    right: 50px;
+    right: 3.125rem;
     z-index: 1001;
     cursor: pointer;
-    width: 30px;
-    height: 30px;
-    padding: 5px;
+    width: 1.875rem;
+    height: 1.875rem;
+    padding: 0.3125rem;
   }
 
   .hamburger .bar {
@@ -930,7 +951,7 @@ button.modal-button:focus-visible {
   .checkbox4:checked ~ label[for="checkbox4"] {
     position: fixed;
     top: 1rem;
-    right: 50px;
+    right: 3.125rem;
     z-index: 1002;
   }
 
@@ -940,15 +961,15 @@ button.modal-button:focus-visible {
   .checkbox4:checked ~ label .hamburger .bar4 { transform: rotate(-45deg) translate(6px, -6px); }
 
   .numbered-heading {
-    font-size: 16px;
+    font-size: 1rem;
     white-space: normal;
     word-wrap: break-word;
-    padding-right: 70px;
-    max-width: calc(100vw - 90px);
+    padding-right: 4.375rem;
+    max-width: calc(100vw - 5.625rem);
     line-height: 1.3;
   }
   .numbered-heading::after { display: none; }
-  .list { column-count: 1; padding-left: 20px; }
+  .list { column-count: 1; padding-left: 1.25rem; }
 
   .section { padding: 1.5rem; margin: 1rem 0; }
   #work-experience .section { padding: 0.75rem 0.25rem !important; }
@@ -979,7 +1000,7 @@ button.modal-button:focus-visible {
 @media screen and (max-width: 479px) {
   body { font-size: var(--fz-xs); }
   .index-content, .about-content { padding: 0.75rem; }
-  .name { font-size: 24px; }
+  .name { font-size: 1.5rem; }
   .numbered-heading { font-size: var(--fz-xl) !important; }
   .section { padding: 1rem; }
   #work-experience .section { padding: 0.5rem 0.15rem !important; margin-bottom: 1rem !important; }
@@ -987,17 +1008,16 @@ button.modal-button:focus-visible {
   #work-experience ul { padding-left: 1rem; }
   #work-experience li { font-size: 0.75rem; line-height: 1.3; }
   .modal-header h2 { font-size: 1.1rem; }
-  .modal-body, .modal-footer { padding: 0.75rem; }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 48em) {
   .certificates-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(10.9375rem, 1fr));
+    gap: 0.625rem;
   }
 
   .certificate-image-wrapper {
-    height: 150px;
+    height: 5.859375rem;
   }
 
   .lightbox-overlay {
@@ -1033,7 +1053,7 @@ button.modal-button:focus-visible {
   }
 
   .certificate-image-wrapper {
-    height: 180px;
+    height: 11.25rem;
   }
 
   .lightbox-nav {
@@ -1051,8 +1071,8 @@ button.modal-button:focus-visible {
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 9999;
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   border-radius: 50%;
   background: #41af8e;
   color: #0a192f;
@@ -1077,51 +1097,13 @@ button.modal-button:focus-visible {
   outline-offset: 3px;
 }
 
-.sasha-hint {
-  position: fixed;
-  bottom: 6rem;
-  right: 1.5rem;
-  color: #5eead4;
-  font-size: 1.1rem;
-  font-family: var(--font-mono);
-  text-align: right;
-  pointer-events: none;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.25rem;
-}
-
-.sasha-hint-arrow {
-  font-size: 1.5rem;
-  line-height: 1;
-  color: #5eead4;
-  align-self: flex-end;
-  margin-right: 18px;
-}
-
-@keyframes sasha-type {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-.sasha-hint-text {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 0;
-  animation: sasha-type 1.5s steps(30, end) 1s forwards;
-  border-right: 2px solid #5eead4;
-}
-
 .sasha-panel {
   position: fixed;
   bottom: 5.5rem;
   right: 1.5rem;
   z-index: 9998;
-  width: 340px;
-  height: 480px;
+  width: 21.25rem;
+  height: 30rem;
   background: #0d2137;
   border: 1px solid rgba(100, 220, 200, 0.5);
   border-radius: 14px;
@@ -1135,16 +1117,16 @@ button.modal-button:focus-visible {
 .sasha-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 16px;
+  gap: 0.625rem;
+  padding: 0.875rem 1rem;
   background: #0a2540;
   border-bottom: 1px solid rgba(100, 220, 200, 0.3);
   flex-shrink: 0;
 }
 
 .sasha-avatar {
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 50%;
   background: var(--accent-teal);
   color: #0a192f;
@@ -1183,11 +1165,11 @@ button.modal-button:focus-visible {
   font-size: 1.5rem;
   cursor: pointer;
   line-height: 1;
-  padding: 4px 6px;
-  border-radius: 4px;
+  padding: 0.25rem 0.375rem;
+  border-radius: 0.25rem;
   transition: color 0.15s, background 0.15s;
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 2rem;
+  min-height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1207,18 +1189,18 @@ button.modal-button:focus-visible {
 .sasha-messages {
   flex: 1;
   overflow-y: auto;
-  padding: 12px;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   scrollbar-width: thin;
   scrollbar-color: var(--sapphire-blue) transparent;
 }
 
 .sasha-msg {
   max-width: 82%;
-  padding: 8px 12px;
-  border-radius: 14px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.875rem;
   font-size: 0.875rem;
   line-height: 1.6;
   word-break: break-word;
@@ -1247,8 +1229,8 @@ button.modal-button:focus-visible {
 
 .sasha-input-row {
   display: flex;
-  gap: 8px;
-  padding: 10px 12px;
+  gap: 0.5rem;
+  padding: 0.625rem 0.75rem;
   border-top: 1px solid rgba(131, 212, 197, 0.25);
   flex-shrink: 0;
 }
@@ -1258,7 +1240,7 @@ button.modal-button:focus-visible {
   background: #0a2540;
   border: 1px solid rgba(100, 220, 200, 0.5);
   border-radius: 999px;
-  padding: 9px 16px;
+  padding: 0.5625rem 1rem;
   font-size: 0.9rem;
   color: #e2edf5;
   outline: none;
@@ -1280,8 +1262,8 @@ button.modal-button:focus-visible {
 }
 
 .sasha-send {
-  width: 38px;
-  height: 38px;
+  width: 2.375rem;
+  height: 2.375rem;
   border-radius: 50%;
   background: var(--accent-teal);
   color: #0a192f;
@@ -1314,7 +1296,7 @@ button.modal-button:focus-visible {
   text-align: center;
   font-size: 0.78rem;
   color: #8ab4c4;
-  padding: 6px 0 10px;
+  padding: 0.375rem 0 0.625rem;
   margin: 0;
   flex-shrink: 0;
 }
@@ -1340,13 +1322,14 @@ button.modal-button:focus-visible {
     width: calc(100vw - 2rem);
     right: 1rem;
     bottom: 4.5rem;
-    height: 420px;
+    height: 26.25rem;
   }
 
   .sasha-bubble {
     bottom: 1rem;
     right: 1rem;
   }
+
 }
 
 /* Project Case Studies */
@@ -1387,18 +1370,18 @@ button.modal-button:focus-visible {
   font-weight: 600;
   margin: 0;
   flex: 1;
-  min-width: 250px;
+  min-width: 15.625rem;
 }
 
 .project-type-badge {
   background: rgba(131, 212, 197, 0.15);
   color: var(--accent-teal);
   padding: 0.4rem 1rem;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   font-size: 0.85rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.03125rem;
   border: 1px solid var(--accent-teal);
 }
 

@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { useState, useRef, useEffect } from 'react'
-const API_URL = process.env.NEXT_PUBLIC_SASHA_API_URL || 'https://api.erinskidds.com'
+import { useState, useRef, useEffect } from "react"
+const API_URL = process.env.NEXT_PUBLIC_SASHA_API_URL || "https://api.erinskidds.com"
 
 interface Message {
-  role: 'user' | 'assistant'
+  role: "user" | "assistant"
   content: string
   isOffline?: boolean
   comingSoon?: boolean
@@ -15,7 +15,7 @@ const GREETING = "Hi! I'm Sasha, Erin's AI. Ask me anything about her — her wo
 export default function SashaWidget() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: GREETING },
+    { role: "assistant", content: GREETING },
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -65,7 +65,7 @@ export default function SashaWidget() {
     const text = input.trim()
     if (!text || loading) return
 
-    const userMsg: Message = { role: 'user', content: text }
+    const userMsg: Message = { role: "user", content: text }
     const updatedMessages = [...messages, userMsg]
     setMessages(updatedMessages)
     setInput('')
@@ -91,7 +91,7 @@ export default function SashaWidget() {
       setMessages(prev => [
         ...prev,
         {
-          role: 'assistant',
+          role: "assistant",
           content: isOfflineResponse
             ? "Sorry, I'm offline right now. You can reach Erin directly on:"
             : data.response,
@@ -102,7 +102,7 @@ export default function SashaWidget() {
       setMessages(prev => [
         ...prev,
         {
-          role: 'assistant',
+          role: "assistant",
           content: "Sorry, I'm offline right now. You can reach Erin directly on:",
           isOffline: true,
         },
@@ -148,7 +148,7 @@ export default function SashaWidget() {
             {messages.map((msg, i) => (
               <div
                 key={i}
-                className={`sasha-msg ${msg.role === 'user' ? 'sasha-msg-user' : 'sasha-msg-bot'}`}
+                className={`sasha-msg ${msg.role === "user" ? "sasha-msg-user" : "sasha-msg-bot"}`}
               >
                 {msg.content}
                 {msg.isOffline && (

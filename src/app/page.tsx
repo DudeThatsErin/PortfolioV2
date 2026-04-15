@@ -1,6 +1,9 @@
-import Link from 'next/link';
+"use client";
+
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
   const technologies = [
     "Languages: TypeScript, JavaScript, C#, Python, C++, ASP.NET",
     "Frontend: React, React Native, Next.js, Vue, Nuxt, Tailwind",
@@ -30,9 +33,7 @@ export default function Home() {
         </div>
 
         <div style={{ marginTop: '3rem' }}>
-          <Link href="/contact" className="border-2 border-[var(--accent-teal)] rounded-full !p-3 cursor-pointer">
-            <button className="contact" aria-label="Get in touch with Erin">Get in Touch</button>
-          </Link>
+            <button type="button" className="contact" onClick={() => router.push('/contact')} aria-label="Get in touch with Erin">Get in Touch</button>
         </div>
       </section>
     </main>

@@ -19,7 +19,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Erin Skidds - Full-Stack Engineer",
-  description: "Erin Skidds - Full-Stack Engineer specializing in front-end and back-end development, bot development, and language learning models",
+  description: "Erin Skidds - Full-Stack Engineer specializing in front-end and back-end development, and AI/ML development",
   icons: {
     icon: "/assets/favicon.ico",
     apple: "/assets/apple-touch-icon.png",

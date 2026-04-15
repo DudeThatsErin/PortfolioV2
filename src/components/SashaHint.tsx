@@ -3,25 +3,25 @@
 import { useEffect, useState } from 'react'
 
 export default function SashaHint() {
-  const [show, setShow] = useState(false)
+  const [visible, setVisible] = useState<boolean | null>(null)
 
   useEffect(() => {
     const hasOpened = localStorage.getItem('sasha_widget_opened')
-    if (!hasOpened) {
-      setShow(true)
-    }
+    setVisible(!hasOpened)
 
-    const onOpen = () => setShow(false)
+    const onOpen = () => setVisible(false)
     window.addEventListener('sasha_opened', onOpen)
     return () => window.removeEventListener('sasha_opened', onOpen)
   }, [])
 
-  if (!show) return null
+  if (!visible) return null
 
   return (
-    <div className="sasha-hint" aria-hidden="true">
-      <span className="sasha-hint-text">Try out my AI that knows about me!</span>
-      <span className="sasha-hint-arrow">↓</span>
+    <div
+      className="fixed bottom-9 right-24 z-[999] flex items-center max-w-[50%] text-[#5eead4] font-mono text-4xl sm:text-3xl [600px]:text-xs text-right pointer-events-none"
+      aria-hidden="true"
+    >
+      <span className="break-words">Try out my AI that knows about me!</span>
     </div>
   )
 }
