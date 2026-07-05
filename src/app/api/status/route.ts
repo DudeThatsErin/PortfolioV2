@@ -85,12 +85,14 @@ async function getPm2(): Promise<{ processes: Pm2Process[]; error?: string }> {
           cpu: Number(monit.cpu ?? 0),
           memory: Number(monit.memory ?? 0),
           uptime:
-            pm2env.status === "online" && uptimeMs ? Date.now() - uptimeMs : null,
+            pm2env.status === "online" && uptimeMs
+              ? Date.now() - uptimeMs
+              : null,
           restarts: Number(pm2env.restart_time ?? 0),
           instances: Number(pm2env.instances ?? 1),
           execMode: String(pm2env.exec_mode ?? "fork_mode"),
         };
-      }
+      },
     );
     return { processes };
   } catch (err) {
@@ -194,9 +196,13 @@ async function getActivity(): Promise<{
       execFileAsync("sqlite3", ["-readonly", "-json", BOT_DB_PATH, query], {
         timeout: 5000,
       }),
-      execFileAsync("sqlite3", ["-readonly", "-json", BOT_DB_PATH, countQuery], {
-        timeout: 5000,
-      }),
+      execFileAsync(
+        "sqlite3",
+        ["-readonly", "-json", BOT_DB_PATH, countQuery],
+        {
+          timeout: 5000,
+        },
+      ),
     ]);
 
     const items: ActivityItem[] = itemsRes.stdout.trim()
@@ -254,7 +260,10 @@ async function getHealth(): Promise<{
     if (!ok) error = body?.error ?? `HTTP ${res.status}`;
   } catch (err) {
     const e = err as Error;
-    error = e.name === "AbortError" ? `timeout after ${HEALTH_TIMEOUT_MS}ms` : e.message;
+    error =
+      e.name === "AbortError"
+        ? `timeout after ${HEALTH_TIMEOUT_MS}ms`
+        : e.message;
   } finally {
     clearTimeout(timer);
   }
@@ -321,7 +330,7 @@ function getEgressBytesSinceBoot(): number {
 function getFreeTier(
   system: ReturnType<typeof getSystem>,
   disk: Awaited<ReturnType<typeof getDisk>>,
-  publicIp: { ip: string; source: string }
+  publicIp: { ip: string; source: string },
 ) {
   const storageUsed = disk?.total ?? 0;
   const egressUsed = getEgressBytesSinceBoot();
@@ -385,7 +394,7 @@ export async function GET() {
       health,
       freeTier: getFreeTier(system, disk, publicIp),
     },
-    { headers: { "Cache-Control": "no-store" } }
+    { headers: { "Cache-Control": "no-store" } },
   );
 }
 
@@ -406,20 +415,29 @@ export async function POST(req: Request) {
   if (!action || !PM2_ACTIONS.includes(action as Pm2Action)) {
     return NextResponse.json(
       { error: `Invalid action. Allowed: ${PM2_ACTIONS.join(", ")}` },
-      { status: 400 }
+      { status: 400 },
     );
   }
   if (!name || typeof name !== "string") {
-    return NextResponse.json({ error: "Missing process name" }, { status: 400 });
+    return NextResponse.json(
+      { error: "Missing process name" },
+      { status: 400 },
+    );
   }
 
   // Only allow acting on processes PM2 actually knows about.
   const { processes, error } = await getPm2();
   if (error) {
-    return NextResponse.json({ error: `PM2 unavailable: ${error}` }, { status: 502 });
+    return NextResponse.json(
+      { error: `PM2 unavailable: ${error}` },
+      { status: 502 },
+    );
   }
   if (!processes.some((p) => p.name === name)) {
-    return NextResponse.json({ error: `Unknown process: ${name}` }, { status: 404 });
+    return NextResponse.json(
+      { error: `Unknown process: ${name}` },
+      { status: 404 },
+    );
   }
 
   // Acting on our own process would kill this request mid-flight. Detach the
@@ -435,7 +453,7 @@ export async function POST(req: Request) {
     } catch (err) {
       return NextResponse.json(
         { error: (err as Error).message },
-        { status: 500 }
+        { status: 500 },
       );
     }
     return NextResponse.json({
@@ -461,7 +479,7 @@ export async function POST(req: Request) {
   } catch (err) {
     return NextResponse.json(
       { ok: false, error: (err as Error).message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
