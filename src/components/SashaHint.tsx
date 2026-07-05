@@ -18,7 +18,7 @@ export default function SashaHint() {
 
   return (
     <div
-      className="fixed bottom-9 right-24 z-[999] flex items-center max-w-[50%] text-[#5eead4] font-mono text-4xl sm:text-3xl [600px]:text-xs text-right pointer-events-none"
+      className="fixed bottom-9 right-24 z-[999] flex items-center max-w-[50%] text-[#5eead4] font-mono text-xs min-[400px]:text-3xl sm:text-4xl text-right pointer-events-none"
       aria-hidden="true"
     >
       <span className="break-words">Try out my AI that knows about me!</span>

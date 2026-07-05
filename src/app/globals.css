@@ -41,11 +41,6 @@
 }
 
 /* Base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 html {
   scroll-behavior: smooth;
@@ -84,6 +79,11 @@ body {
   margin: 0 auto;
   width: 100%;
   overflow-x: hidden;
+}
+
+/* Dashboard route opts out of the centered max-width wrapper so it can go full width. */
+body.dashboard-page #main-content {
+  max-width: none;
 }
 
 /* Skip to content link */
@@ -281,7 +281,6 @@ nav {
   justify-content: flex-end;
   width: 100%;
   padding: 0;
-  margin-top: -1rem;
 }
 
 .menu a {
@@ -409,8 +408,8 @@ label[for="checkbox4"] { display: none; }
 }
 
 .bar1 { top: 0; }
-.bar2 { top: 50%; transform: translateY(-50%); }
-.bar3 { bottom: 50%; transform: translateY(50%); }
+.bar2 { top: 50%; transform: translateY(-60%); }
+.bar3 { bottom: 50%; transform: translateY(60%); }
 .bar4 { bottom: 0; }
 
 /* =====================
@@ -891,16 +890,16 @@ button.modal-button:focus-visible {
   .logo a { font-size: 1.125rem; }
   .left-sidebar { display: none; }
 
-  nav { padding: 0; }
+  header, nav { overflow: visible; padding: 0; }
 
   .menu {
     display: none;
-    background-color: rgba(0, 0, 0, 0.98);
+    background-color: rgba(0, 0, 0, 0.85);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     z-index: 1000;
     flex-direction: column;
     justify-content: center;
@@ -922,7 +921,6 @@ button.modal-button:focus-visible {
 
   .menu a:hover {
     color: var(--white);
-    background-color: rgba(131, 212, 197, 0.1);
     border-radius: 5px;
   }
 
@@ -931,12 +929,13 @@ button.modal-button:focus-visible {
     display: block;
     position: fixed;
     top: 1rem;
-    right: 3.125rem;
+    right: 1.25rem;
     z-index: 1001;
     cursor: pointer;
     width: 1.875rem;
     height: 1.875rem;
     padding: 0.3125rem;
+    overflow: visible;
   }
 
   .hamburger .bar {
@@ -951,14 +950,14 @@ button.modal-button:focus-visible {
   .checkbox4:checked ~ label[for="checkbox4"] {
     position: fixed;
     top: 1rem;
-    right: 3.125rem;
+    right: 1.25rem;
     z-index: 1002;
   }
 
-  .checkbox4:checked ~ label .hamburger .bar1 { transform: rotate(45deg) translate(6px, 6px); }
+  .checkbox4:checked ~ label .hamburger .bar1 { top: 50%; transform: translateY(-50%) rotate(45deg); }
   .checkbox4:checked ~ label .hamburger .bar2,
   .checkbox4:checked ~ label .hamburger .bar3 { opacity: 0; }
-  .checkbox4:checked ~ label .hamburger .bar4 { transform: rotate(-45deg) translate(6px, -6px); }
+  .checkbox4:checked ~ label .hamburger .bar4 { top: 50%; bottom: auto; transform: translateY(-50%) rotate(-45deg); }
 
   .numbered-heading {
     font-size: 1rem;
@@ -1071,13 +1070,14 @@ button.modal-button:focus-visible {
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 9999;
-  width: 3.75rem;
-  height: 3.75rem;
-  border-radius: 50%;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
   background: #41af8e;
-  color: #0a192f;
+  color: #fff;
   border: 2px solid rgba(0,0,0,0.2);
-  font-size: 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.15s var(--easing), background 0.2s var(--easing);
@@ -1328,6 +1328,8 @@ button.modal-button:focus-visible {
   .sasha-bubble {
     bottom: 1rem;
     right: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
   }
 
 }
@@ -1506,5 +1508,72 @@ button.modal-button:focus-visible {
   .project-link {
     justify-content: center;
     width: 100%;
+  }
+}
+
+@layer components {
+  /* Cards */
+  .card {
+    @apply bg-[rgba(20,32,44,0.72)] border border-[var(--border-color)] rounded-[var(--border-radius)] p-5 backdrop-blur;
+  }
+
+  .card-title {
+    @apply text-[var(--white)] uppercase tracking-wide text-lg flex justify-between items-center mb-4;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply border rounded-[var(--border-radius)] px-3 py-1 text-[var(--accent-teal)] border-[var(--accent-teal)] transition;
+  }
+
+  .btn:hover {
+    @apply bg-[var(--accent-teal)] text-black;
+  }
+
+  .btn-danger {
+    @apply border-[var(--border-color)] text-red-400;
+  }
+
+  .btn-danger:hover {
+    @apply bg-red-500 text-black;
+  }
+
+  .btn-success:hover {
+    @apply bg-green-500 text-black;
+  }
+
+  /* Badges */
+  .badge {
+    @apply text-xs uppercase px-2 py-1 rounded border;
+  }
+
+  /* Layout helpers */
+  .row {
+    @apply flex items-center justify-between gap-3;
+  }
+
+  .col {
+    @apply flex flex-col;
+  }
+
+  .muted {
+    @apply text-[var(--light-slate)];
+  }
+
+  .text-main {
+    @apply text-[var(--gainsboro)];
+  }
+
+  .text-title {
+    @apply text-[var(--light-sky-blue)];
+  }
+
+  /* Gauge */
+  .gauge-track {
+    @apply h-2 bg-white/10 rounded overflow-hidden;
+  }
+
+  .gauge-fill {
+    @apply h-full transition-all duration-300;
   }
 }

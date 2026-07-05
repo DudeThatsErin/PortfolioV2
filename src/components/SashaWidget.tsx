@@ -227,7 +227,7 @@ export default function SashaWidget() {
         aria-expanded={open}
         className="sasha-bubble"
       >
-        {open ? '×' : '💬'}
+        {open ? '×' : 'Click to try my AI'}
       </button>
     </>
   )

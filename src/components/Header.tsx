@@ -29,36 +29,38 @@ export default function Header() {
       </a>
       
       <header role="banner">
-        <div className="logo">
-          <Link href="/" aria-label="Erin Skidds homepage">&lt;ES&gt;</Link>
-        </div>
-        <nav role="navigation" aria-label="Main navigation">
-          <input type="checkbox" id="checkbox4" className="checkbox4 visually-hidden" aria-hidden="true" />
-          <label
-            htmlFor="checkbox4"
-            className="hamburger-label"
-            aria-label="Toggle navigation menu"
-            tabIndex={0}
-            role="button"
-            aria-expanded={isMenuOpen}
-            aria-controls="main-menu"
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); } }}
-          >
-            <div className="hamburger hamburger4" aria-hidden="true">
-              <span className="bar bar1"></span>
-              <span className="bar bar2"></span>
-              <span className="bar bar3"></span>
-              <span className="bar bar4"></span>
-            </div>
-            <span className="visually-hidden">Menu</span>
-          </label>
-          <div className="menu" id="main-menu" role="menu">
-            <Link href="/" role="menuitem" onClick={closeMenu}>01. Home</Link>
-            <Link href="/work" role="menuitem" onClick={closeMenu}>02. Work Experience</Link>
-            <Link href="/projects" role="menuitem" onClick={closeMenu}>03. Projects</Link>
-            <Link href="/contact" role="menuitem" onClick={closeMenu}><button>Contact</button></Link>
+        <div className="bg-black w-full">
+          <div className="logo">
+            <Link href="/" aria-label="Erin Skidds homepage">&lt;ES&gt;</Link>
           </div>
-        </nav>
+          <nav role="navigation" aria-label="Main navigation">
+            <input type="checkbox" id="checkbox4" className="checkbox4 visually-hidden" aria-hidden="true" />
+            <label
+              htmlFor="checkbox4"
+              className="hamburger-label"
+              aria-label="Toggle navigation menu"
+              tabIndex={0}
+              role="button"
+              aria-expanded={isMenuOpen}
+              aria-controls="main-menu"
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); } }}
+            >
+              <div className="hamburger hamburger4" aria-hidden="true">
+                <span className="bar bar1"></span>
+                <span className="bar bar2"></span>
+                <span className="bar bar3"></span>
+                <span className="bar bar4"></span>
+              </div>
+              <span className="visually-hidden">Menu</span>
+            </label>
+            <div className="menu" id="main-menu" role="menu">
+              <Link href="/" role="menuitem" onClick={closeMenu}>01. Home</Link>
+              <Link href="/work" role="menuitem" onClick={closeMenu}>02. Work Experience</Link>
+              <Link href="/projects" role="menuitem" onClick={closeMenu}>03. Projects</Link>
+              <Link href="/contact" role="menuitem" onClick={closeMenu}><button>Contact</button></Link>
+            </div>
+          </nav>
+        </div>
       </header>
       <div className="left-sidebar" aria-label="Social links">
         <div className="bottom">

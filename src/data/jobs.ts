@@ -8,12 +8,23 @@ export interface Job {
 }
 
 export const jobs: Job[] = [
+  //   {
+  //   id: "togetherwork",
+  //   title: "Senior Full-Stack Engineer",
+  //   company: "Togetherwork",
+  //   startDate: "2026",
+  //   endDate: "Present",
+  //   responsibilities: [
+  //     ""
+  //   ]
+  // },
   {
     id: "payactiv",
     title: "Software Engineer",
     company: "Payactiv",
     startDate: "2024",
     endDate: "Present",
+    // endDate: "2026",
     responsibilities: [
       "Designed and deployed CI/CD pipelines reducing deployment time from 8 hours → >1 hour and cutting release rollback incidents by 75%.",
       "Architected mobile and frontend infrastructure from scratch as founding engineer, establishing standards for a React Native + Next.js platform serving 2M+ users.",
