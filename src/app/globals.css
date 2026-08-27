@@ -30,6 +30,11 @@
   --fz-xl: 1.25rem;
   --fz-heading: 2rem;
 
+  /* Height of the fixed desktop nav bar: 1.5rem of padding plus the Contact
+     button (1.25rem text + 1rem padding + 2px borders). Page content offsets
+     itself by this so headings clear the bar instead of sliding under it. */
+  --nav-height: 4.25rem;
+
   /* Layout */
   --section-padding: 1rem;
   --border-radius: 0.3125rem;
@@ -204,23 +209,24 @@ select:focus-visible,
    Page Layout
    ===================== */
 
+/* Top padding clears the fixed nav. This replaces a `top: 10%` offset, which
+   resolved to 0 because the containing block has no explicit height — leaving
+   every page heading tucked behind the nav bar. */
 .index-content {
   margin: 0;
-  padding: 4rem 2rem 2rem;
+  padding: calc(var(--nav-height) + 2.5rem) 2rem 2rem;
   width: 100%;
   max-width: 50rem;
   position: relative;
-  top: 10%;
   overflow-x: hidden;
 }
 
 .about-content {
   margin: 0;
-  padding: 4rem 2rem 2rem;
+  padding: calc(var(--nav-height) + 2.5rem) 2rem 2rem;
   width: 100%;
   max-width: 75rem;
   position: relative;
-  top: 10%;
   overflow-x: hidden;
 }
 
