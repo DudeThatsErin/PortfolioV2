@@ -898,14 +898,22 @@ button.modal-button:focus-visible {
 
   header, nav { overflow: visible; padding: 0; }
 
+  /* Use opposing edges instead of a 100% fixed width. A fixed element sized
+     to 100% can include the scrollbar width, leaving the menu and its toggle
+     hanging past the visible right edge on narrow screens. */
+  nav {
+    left: 0;
+    right: 0;
+    width: auto;
+  }
+
   .menu {
     display: none;
     background-color: rgba(0, 0, 0, 0.85);
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    width: auto;
+    height: auto;
     z-index: 1000;
     flex-direction: column;
     justify-content: center;
@@ -935,7 +943,8 @@ button.modal-button:focus-visible {
     display: block;
     position: fixed;
     top: 1rem;
-    right: 1.25rem;
+    /* Leave room for a browser scrollbar as well as the visual edge. */
+    right: calc(1.25rem + 1rem);
     z-index: 1001;
     cursor: pointer;
     width: 1.875rem;
@@ -956,7 +965,7 @@ button.modal-button:focus-visible {
   .checkbox4:checked ~ label[for="checkbox4"] {
     position: fixed;
     top: 1rem;
-    right: 1.25rem;
+    right: calc(1.25rem + 1rem);
     z-index: 1002;
   }
 

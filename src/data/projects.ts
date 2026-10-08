@@ -27,21 +27,23 @@ export const projects: Project[] = [
     technologies: ["Ollama", "Qwen2.5 3B Instruct", "Self-Hosted LLM", "OpenAI-Compatible API", "Prompt Engineering", "TypeScript", "Next.js", "Chrome Extension (MV3)", "Firefox WebExtensions", "Node.js", "iOS Shortcuts", "GitHub Actions", "Oracle Cloud ARM"],
     type: "personal",
     links: {
-      github: "https://github.com/DudeThatsErin/AppleQueue"
+      github: "https://github.com/DudeThatsErin/AppleQueue",
+      website: "https://applequeue.erinskidds.com"
     }
   },
   {
-    id: "onenote-ai-dashboard",
-    title: "OneNote API & Self-Hosted AI Dashboard",
-    description: "A self-hosted control panel and HTTP API over Microsoft OneNote, with a local LLM layer that can summarize, restructure, or rewrite any note, page, or queued item on demand — all inference running on my own server.",
-    problem: "My OneNote automation had grown into a Discord bot, a raw Node HTTP server talking to Microsoft Graph, an hourly table-of-contents job, and three queueing APIs — with no single place to see what any of it could do. Wiring up a new iOS Shortcut meant rereading source code to find parameter names and limits. Separately, I wanted to run my own notes through an LLM to summarize long pages or pull action items out of meeting notes, without shipping personal content to a third-party API.",
-    approach: "Built a shared AI client targeting any OpenAI-compatible endpoint, defaulting to Ollama running Qwen2.5 3B Instruct locally, then exposed it three ways rather than bolting it onto one screen: a general-purpose transform endpoint with preset actions (summarize, bullets, action items, clean up, expand, title) plus free-form custom instructions; an \"ai\" query parameter on the OneNote read API that pipes fetched page content straight through the model; and an optional field on the Notes, Reminders, and Calendar write APIs that cleans content before it is queued. Custom instructions are passed as a separate message turn rather than concatenated into the system prompt, so user input can't rewrite the model's instructions. I also documented the entire OneNote surface — five endpoints, every parameter, and the real constraints — on a reference page in the dashboard.",
-    results: "Any note or OneNote page can now be summarized or restructured in place, with results shown for review and explicit replace/append/discard actions rather than silently overwriting the original. Degradation is deliberate: if the model is busy or fails mid-write, the item still saves with its original text and a machine-readable reason attached, because losing a note to a failed transform is far worse than saving it untidied. Summarizing roughly 4 KB of real page content takes about 38 seconds on CPU, which the docs state plainly alongside the 12,000-character input cap so the limits aren't a surprise. The API reference documents what the integration genuinely cannot do — no delete, append-only editing, exact case-sensitive title matching — and surfaced two real findings in the process: an unauthenticated health endpoint and an OAuth scope gap that silently broke file uploads.",
-    contribution: "Individual project — designed the shared inference layer, built the transform and OneNote AI endpoints, wired the AI into the dashboard UI, audited the existing OneNote API surface, and wrote the public reference documentation including its limits and failure modes.",
-    technologies: ["Ollama", "Qwen2.5 3B Instruct", "Self-Hosted LLM", "OpenAI-Compatible API", "Prompt Engineering", "Microsoft Graph API", "OAuth 2.0", "Next.js", "TypeScript", "React", "Node.js", "SQLite", "PM2", "iOS Shortcuts"],
+    id: "onenote-queue",
+    title: "OneNote Queue - Self-Hosted OneNote Capture API",
+    description: "An open-source, self-hostable capture API and setup dashboard for creating and appending Microsoft OneNote pages from iOS Shortcuts, Discord, or any HTTPS client.",
+    problem: "Capturing information in OneNote from other devices and automations was awkward: every integration needed its own authentication flow, page destination, and Microsoft Graph implementation.",
+    approach: "Built a guided setup dashboard around Microsoft OAuth, encrypted token storage, a configurable destination section, and hashed API keys. The service exposes focused capture and append endpoints, with signed Discord interactions for quick OneNote actions.",
+    results: "A user can deploy their own copy, connect Microsoft, configure a OneNote destination, and capture or append notes through a small HTTPS API. The project includes self-hosting support, deployment guidance, and documentation for iOS Shortcuts and Discord.",
+    contribution: "Individual project — designed and built the self-hosted application, Microsoft Graph integration, OAuth flow, capture API, setup experience, and deployment documentation.",
+    technologies: ["Next.js", "TypeScript", "Microsoft Graph API", "OAuth 2.0", "PostgreSQL", "Docker", "Vercel", "iOS Shortcuts", "Discord API"],
     type: "personal",
     links: {
-      github: "https://github.com/DudeThatsErin/ErinsHelperDiscordBot"
+      github: "https://github.com/DudeThatsErin/onenote-queue",
+      website: "https://onenotequeue.erinskidds.com"
     }
   },
   {
